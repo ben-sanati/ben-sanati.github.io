@@ -74,8 +74,8 @@ a {
 /* About section formatting */
 .intro {
     display: flex;
-    justify-content: space-between; /* Align items on both sides */
-    align-items: center; /* Vertically center the content */
+    justify-content: flex-start; /* Align items on both sides */
+    align-items: flex-start; /* Vertically center the content */
     width: 100%;
     height: auto;
     padding: 30px 0; /* Reduced padding around the section */
@@ -84,11 +84,24 @@ a {
 }
 
 .left-container {
-    flex: 0 0 10%; /* Keep it 15% wide as requested */
+    flex: 0 0 15%; /* Keep it 15% wide as requested */
     text-align: center; /* Center the content inside */
-    padding-left: 0; /* Remove left padding */
-    margin-left: 0; /* Remove left margin */
+    padding: 20px 0 0 0; /* Remove left padding */
+    margin: 0; /* Remove left margin */
     position: relative; /* Ensure it's positioned relative to the screen */
+    top: 50%;
+    left: 37%;
+    transform: translateY(112%);
+}
+
+.right-container {
+    flex: 0 0 15%; /* Keep it 30% wide like the left container */
+    text-align: left; /* Align text to the left */
+    padding: 20px 0 0 0; /* Remove left padding */
+    margin: 0; /* Remove margin */
+    position: relative; /* Change to absolute positioning */
+    top: 50%; /* Position it halfway down the screen */
+    left: 112%; /* Position it a quarter from the left */
 }
 
 .image-container {

@@ -9,3 +9,7 @@ More advanced configuration requires altering some files that are not included i
 Second, you might want to edit the style variables specified in _sass/_variables.scss. These allow you to customize the theme's color scheme and typefaces. There are many resources on the web to learn the principles of good web design. I personally recommend Matthew Butterick's Practical Typography.
 
 In addition to these files, you can customize favicons in the assets folder. For that, favicon.io is an excellent tool. You can also change the particles.js configurations in assets/js/particles.json. The library homepage features an interactive tool from which you can export a new configuration.
+
+## Structure
+
+- 

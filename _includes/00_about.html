@@ -17,10 +17,11 @@
                         <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
                         <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
                     </ul>
-                    <br>
-                    <p class="intro-text-left">
-                        I'm interested in DRL, MARL,<br/>ZSG, and continual learning.
-                    </p>
+                </div>
+                <!-- Right side: Text -->
+                <div class="right-container" id="typewriter">
+                    <h1 class="intro-text-right">Hey, I'm Ben.</h1>
+                    <p class="intro-text-right" id="typewriter-text"></p>
                 </div>
             </div>
         </div>
@@ -34,6 +35,12 @@
         width: 30% !important; /* Width of the left container */
     }
 
+    .right-container {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 50% !important; /* Width of the left container */
+    }
+
     .image-container {
         text-align: center;
     }
@@ -43,3 +50,28 @@
         border-radius: 20%;
     }
 </style>
+
+<script>
+    // Text to display
+    const text = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
+    
+    let index = 0; // Start at the first character
+    const speed = 50; // Typewriter speed in milliseconds
+
+    function typeWriter() {
+        // Check if the text is fully displayed
+        if (index < text.length) {
+            const currentChar = text.charAt(index);
+            // Replace newline characters with <br> tags
+            document.getElementById("typewriter-text").innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
+            index++;
+            setTimeout(typeWriter, speed); // Call this function again after 'speed' milliseconds
+        }
+    }
+
+    // Start the typing effect after the page loads
+    window.onload = function() {
+        typeWriter();
+    };
+</script>
+

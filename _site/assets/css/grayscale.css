@@ -92,7 +92,7 @@ a {
     margin: 0; /* Remove left margin */
     position: relative; /* Ensure it's positioned relative to the screen */
     top: 50%;
-    left: 37%;
+    left: 35%;
     transform: translateY(112%);
 }
 
@@ -104,7 +104,6 @@ a {
     position: relative; /* Change to absolute positioning */
     top: 50%; /* Position it halfway down the screen */
     left: 112%; /* Position it a quarter from the left */
-    transform: translateY(8%);
 }
 
 .image-container {
@@ -140,7 +139,7 @@ p.intro-text-left {
     margin-bottom: 0px; /* Reduced space below the text */
 }
 
-@media (min-width: 767px) {
+@media (min-width: 75vw) {
     .intro {
         height: 100%;
         padding: 0;
@@ -155,9 +154,10 @@ p.intro-text-left {
     }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 75vw) {
     .content-section {
         padding-top: 250px;
+        width: 100%;
     }
 
     .download-section {

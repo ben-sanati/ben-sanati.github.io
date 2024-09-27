@@ -27,12 +27,10 @@
                 {% if page.url contains 'notes' or page.url contains 'projects' or page.url contains 'blog' or page.url contains 'ovw' or page.url contains 'pres'%}
                     <li><a class="page-scroll" href="{{site.baseurl}}/#research">research</a></li>
                     <li><a class="page-scroll" href="{{site.baseurl}}/#experience">experience</a></li>
-                    <li><a href="{{ site.url }}/cv/index.html">cv</a></li>
 
                 {% else %}
                     <li><a class="page-scroll" href="#research">research</a></li>
                     <li><a class="page-scroll" href="#experience">experience</a></li>
-                    <li><a href="{{ site.url }}/cv/index.html">cv</a></li>
                 {% endif %}
 
             </ul>

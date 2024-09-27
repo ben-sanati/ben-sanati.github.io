@@ -1,11 +1,11 @@
-<h2 style="text-align: center; margin-top: -150px;">Research</h2>
+<h2 style="text-align: center; margin-top: -150px; color: #3498db;">Research</h2>
 
 <!-- Research interests section -->
 <style>
     .research_box {
         padding: 15px;
         background-color: #1a1a1a;
-        border: 2px solid #7603d4;
+        border: 2px solid #5c00dd;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         color: #fff;
@@ -13,7 +13,7 @@
     }
 
     .research_box:hover {
-        border-color: #ff00e0;
+        border-color: #3498db;
         background-color: #262626;
         transform: scale(1.02);
     }
@@ -36,41 +36,35 @@
 
 <div style="padding-left: 5%; padding-right: 5%;">
     <div style="width: 100%; padding: 8px; margin-bottom: 20px; text-align: center; font-size: large;">
-        Here is some more information about my research interests.
+        Here's some information about the work I find particularly interesting.<br/>Let me know if we have overlapping interests.
     </div>
 
     <!-- Grid container for 2x2 layout -->
     <div class="grid-container">
-        <div class="research_box"><strong>🔎 Interpretability.</strong> I'm interested in <a href="https://arxiv.org/abs/2402.01761">rethinking interpretability</a> in the context of LLMs
+        <div class="research_box"><strong>🎯 Zero-Shot Generalisation</strong><br>Show a monkey how to stack some bricks, and it’ll ace the job no matter the shape, color, or pose. Teach the same trick to a DL model, and watch it have an aneurism because the colour of the brick changed. Personally, I'm not a fan of drowning models in heaps of training data, so how do we craft <strong>domain-invariant</strong> policies? Let’s figure this out before <a href="https://en.wikipedia.org/wiki/Wirth%27s_law">Wirth</a> pops up with a "I told you so"—if he hasn’t already!”
             <br><br>
-            <a href="https://www.nature.com/articles/s41467-023-43713-1">augmented imodels</a> - use LLMs to build a transparent model<br>
-            <a href="http://proceedings.mlr.press/v119/rieger20a.html">explanation penalization</a> - regularize explanations to align models with prior knowledge<br>
-            <a href="https://proceedings.neurips.cc/paper/2021/file/acaa23f71f963e96c8847585e71352d6-Paper.pdf">adaptive wavelet distillation</a> - replace neural nets with simple, performant wavelet models
+            <a href="https://arxiv.org/abs/2111.09794">Zero-shot Generalisation in DRL Survey</a> - really nice survey on this topic by the lot in DARK labs, UCL.<br>
+            <a href="https://ieeexplore.ieee.org/document/9847099?arnumber=9847099">Domain Generalisation Survey</a> - a broader look at the problem of domain invariance.<br>
+            <a href="https://arxiv.org/abs/2202.00104">Generalisation in Cooperative MARL</a> - an interesting look into comnbinatorial generalisation.
         </div>
 
-        <div class="research_box"><strong>🚗 LLM steering. </strong>Interpretability tools can provide ways to better guide and use LLMs (without needing gradients!)
+        <div class="research_box"><strong>🔄 Continual Learning</strong><br> What is this <a href="https://link.springer.com/content/pdf/10.1007/978-3-319-15524-1.pdf">myth of the objective</a>? Does it even exist, or are we just chasing shadows? Surely, models should be built just like us, ever-learning. The real question "how do we design an algorithm that will last for a million years?" (I don't know who said this first but it definitely wasn't me).
             <br><br>
-            <a href="https://arxiv.org/abs/2310.14034">tree prompting</a> - improve black-box few-shot text classification with decision trees<br>
-            <a href="https://arxiv.org/abs/2311.02262">attention steering</a> / <a href="https://arxiv.org/abs/2409.10790">automatic attention steering</a> - guide LLMs by emphasizing specific input spans<br>
-            <a href="https://arxiv.org/abs/2210.01848">interpretable autoprompting</a> - automatically find fluent natural-language prompts<br>
+            <a href="https://arxiv.org/abs/1909.08383">Continual Learning Survey</a><br>
+            <a href="https://arxiv.org/abs/2302.00487">Another Continual Learning Survey</a> - Both of these surveys are great<br>
+            <a href="https://www.youtube.com/watch?v=Ugp1osXLEd4">A Definition of Continual Learning</a> - a definition of continual DRL by one of my PhD supervisors.
         </div>
 
-        <div class="research_box"><strong>🧠 Neuroscience. </strong> Since joining MSR, I've been focused on leveraging LLM interpretability to understand how the human brain represents language (using fMRI in collaboration with the <a href="https://www.cs.utexas.edu/~huth/index.html">Huth lab</a> at UT Austin).
+        <div class="research_box"><strong>🧠 Representation Learning</strong><br> This ones definitely gonna get the LeCun fanbois ears pricked up. 
             <br><br>
             <a href="https://arxiv.org/abs/2405.16714">qa embeddings</a> - build interpretable fMRI encoding models by asking yes/no questions to LLMs<br>
             <a href="https://arxiv.org/abs/2305.09863">summarize &amp; score explanations</a> - generate natural-language explanations of fMRI encoding models
         </div>
 
-        <div class="research_box"><strong>💊 Healthcare. </strong> I'm also actively working on how we can improve clinical decision instruments by using the information contained across various sources in the medical literature (in collaboration with <a href="https://profiles.ucsf.edu/aaron.kornblith">Aaron Kornblith</a> at UCSF and the MSR <a href="https://www.microsoft.com/en-us/research/group/real-world-evidence/">Health Futures team</a>).
+        <div class="research_box"><strong>📜 Magnus Finis </strong><br>
             <br><br>
             <a href="https://arxiv.org/abs/2306.00024">clinical self-verification</a> - self-verification improves performance and interpretability of clinical information extraction<br>
             <a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000076">clinical rule vetting</a> - stress testing a clinical decision instrument performance for intra-abdominal injury
         </div>
     </div>
-
-    <div style="width: 100%; padding: 8px; margin-bottom: 20px; text-align: center; font-size: large;">
-        Across these areas, I'm interested in decision trees and how we can build flexible but accurate transparent models. I put a lot of my code into the <a href="https://github.com/csinva/imodels">imodels</a> and <a href="https://github.com/csinva/imodelsx">imodelsX</a> packages.
-    </div>
 </div>
-
-<hr>

@@ -49,6 +49,8 @@ a {
     outline: 0;
 }
 
+/* Reposition navbar buttons */
+
 @media (min-width: 767px) {
     .navbar {
         padding: 10px 0;

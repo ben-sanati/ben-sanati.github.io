@@ -104,6 +104,7 @@ a {
     position: relative; /* Change to absolute positioning */
     top: 50%; /* Position it halfway down the screen */
     left: 112%; /* Position it a quarter from the left */
+    transform: translateY(8%);
 }
 
 .image-container {

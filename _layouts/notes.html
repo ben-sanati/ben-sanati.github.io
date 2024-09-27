@@ -1,0 +1,80 @@
+<head>
+    {% include head.html %}
+    {% include navigation.html %}
+    {% include google_analytics.html %}
+    {% include js.html %}
+    <link href="{{ site.baseurl }}/assets/css/notes.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/highlight.css" rel="stylesheet">
+    <script src="{{ site.baseurl }}/assets/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body data-spy="scroll" data-target=".sidebar">
+    <div class="wrapper">
+        <div class="sidenav navbar">
+            <div id="toc"></div>
+        </div>
+
+        <div class="main" style="margin-right: 15%;">
+            <div id="content" class="markdown">
+                <hr>
+                <p class="title" style="font-size: xx-large; text-align: center; margin-bottom: 0px;">
+                    {{ page.title }} <a class="btn btn-primary" style="text-transform: lowercase"
+                        href="https://github.com/csinva/csinva.github.io/blob/master/{{ page.path }}">view
+                        markdown <i class="fa fa-github fa-fw"></i></a>
+                    {% if page.subtitle %}
+                <p class="subtitle" style="font-size: large; text-align: center;">{{page.subtitle }}</p>
+                {% endif %}
+                </p>
+                <hr>
+                {{ page.content | markdownify }}
+                <!-- Check if page has attribute subtitle -->
+
+                <hr>
+                <br />
+                <br />
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<style>
+    .markdown p,
+    li,
+    ul {
+        font-size: large;
+    }
+
+    #markdown-toc {
+        display: none;
+    }
+</style>
+
+<!--js-->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });
+    MathJax.Hub.Config({
+        tex2jax: {
+         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+         processEscapes: true
+        }
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#toc').toc();
+    });
+</script>
+
+<style>
+    .highlight {
+        background-color: black;
+        border-color: black;
+    }
+</style>

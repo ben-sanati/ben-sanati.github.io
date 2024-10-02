@@ -86,24 +86,23 @@ a {
 }
 
 .left-container {
-    flex: 0 0 15%; /* Keep it 15% wide as requested */
-    text-align: center; /* Center the content inside */
-    padding: 20px 0 0 0; /* Remove left padding */
-    margin: 0; /* Remove left margin */
-    position: relative; /* Ensure it's positioned relative to the screen */
-    top: 50%;
-    left: 35%;
-    transform: translateY(112%);
+    flex: 0 0 15vw; /* Keep it 15% wide */
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    position: relative;
+    top: 0%; /* Keep it positioned 50% down the screen */
+    left: 0%; /* Keep it 35% from the left edge */
 }
 
 .right-container {
-    flex: 0 0 15%; /* Keep it 30% wide like the left container */
-    text-align: left; /* Align text to the left */
-    padding: 20px 0 0 0; /* Remove left padding */
-    margin: 0; /* Remove margin */
-    position: relative; /* Change to absolute positioning */
-    top: 50%; /* Position it halfway down the screen */
-    left: 112%; /* Position it a quarter from the left */
+    flex: 0 0 30vw; /* Keep it 15% wide */
+    text-align: left;
+    padding: 20px 0;
+    margin: 0;
+    position: relative;
+    top: 0%; /* Keep it positioned 50% down the screen */
+    left: 60%; /* Keep it positioned right from the left edge */
 }
 
 .image-container {

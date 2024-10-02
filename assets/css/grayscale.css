@@ -76,92 +76,46 @@ a {
 /* About section formatting */
 .intro {
     display: flex;
-    justify-content: space-between; /* Align items with space between them */
-    align-items: flex-start; /* Align items at the top */
+    justify-content: flex-start; /* Align items on both sides */
+    align-items: flex-start; /* Vertically center the content */
     width: 100%;
     height: auto;
-    padding: 30px 0;
+    padding: 30px 0; /* Reduced padding around the section */
     color: #fff;
     background-size: cover;
-    flex-wrap: wrap; /* Allow containers to wrap on smaller screens */
 }
 
 .left-container {
-    flex: 0 1 15%; /* 15% of the container width */
+    flex: 0 0 15vw; /* Keep it 15% wide */
     text-align: center;
     padding: 20px 0;
     margin: 0;
-    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    position: relative;
+    top: 0%; /* Keep it positioned 50% down the screen */
+    left: 0%; /* Keep it 35% from the left edge */
 }
 
 .right-container {
-    flex: 0 1 15%; /* 15% of the container width */
+    flex: 0 0 30vw; /* Keep it 15% wide */
     text-align: left;
     padding: 20px 0;
     margin: 0;
-    box-sizing: border-box;
+    position: relative;
+    top: 0%; /* Keep it positioned 50% down the screen */
+    left: 60%; /* Keep it positioned right from the left edge */
 }
 
 .image-container {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Reduced space between image and the text below it */
 }
 
 .intro-text-left {
     font-size: 1.2em;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-transform: none;
+    margin-top: 5px; /* Reduced vertical space between heading and text */
+    margin-bottom: 5px; /* Reduced space below the heading */
+    text-transform: none; /* This ensures the text remains case-sensitive */
 }
 
-/* Media query for larger screens (desktops) */
-@media (min-width: 1200px) {
-    .intro {
-        padding: 0;
-    }
-
-    .intro .intro-body .brand-heading {
-        font-size: 100px;
-    }
-
-    .intro .intro-body .intro-text {
-        font-size: 25px;
-    }
-
-    .left-container, .right-container {
-        flex: 0 0 15%; /* Fixed at 15% for larger screens */
-    }
-}
-
-/* Media query for tablets (portrait) */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .left-container, .right-container {
-        flex: 0 1 30%; /* Wider containers on tablets */
-    }
-
-    .intro-text-left {
-        font-size: 1.1em;
-    }
-}
-
-/* Media query for mobile screens */
-@media (max-width: 767px) {
-    .intro {
-        flex-direction: column; /* Stack containers on top of each other */
-        align-items: center;
-    }
-
-    .left-container, .right-container {
-        flex: 0 1 100%; /* Full width on mobile */
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .intro-text-left {
-        font-size: 1em;
-    }
-}
-
-/* Social buttons */
 .social-buttons {
     display: flex; /* Makes the list inline, with items in a row */
     justify-content: center; /* Center the list items horizontally */
@@ -182,6 +136,21 @@ a {
 p.intro-text-left {
     margin-top: 0px; /* Reduced space between paragraphs and buttons */
     margin-bottom: 0px; /* Reduced space below the text */
+}
+
+@media (min-width: 75vw) {
+    .intro {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro .intro-body .brand-heading {
+        font-size: 100px;
+    }
+
+    .intro .intro-body .intro-text {
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 75vw) {

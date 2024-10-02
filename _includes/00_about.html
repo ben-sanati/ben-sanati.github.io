@@ -80,13 +80,13 @@
         .right-container {
             position: absolute;
             text-align: left;
-            top: 15vw; /* Keep it positioned 50% down the screen */
+            top: 10vw; /* Keep it positioned 50% down the screen */
             width: 100%; /* Adjust width as needed */
             left: 0vw; /* Keep it positioned right from the left edge */
         }
 
         .intro-text-right {
-            color: #e3e619;
+            color: #ffffff;
         }
     }
 </style>
@@ -94,8 +94,14 @@
 <!-- Typwriting js code -->
 <script>
     // Text to display
-    const text = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
-    
+    const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
+
+    // Check if the device is in portrait mode
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+    // If in portrait mode, only take the text up to the first newline
+    const text = isPortrait ? fullText.split('\n')[0] : fullText;
+
     let index = 0; // Start at the first character
     const speed = 10; // Typewriter speed in milliseconds
 
@@ -103,7 +109,7 @@
         // Check if the text is fully displayed
         if (index < text.length) {
             const currentChar = text.charAt(index);
-            // Replace newline characters with <br> tags
+            // Replace newline characters with <br> tags (if needed)
             document.getElementById("typewriter-text").innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
             index++;
             setTimeout(typeWriter, speed); // Call this function again after 'speed' milliseconds
@@ -114,5 +120,6 @@
     window.onload = function() {
         typeWriter();
     };
+
 </script>
 

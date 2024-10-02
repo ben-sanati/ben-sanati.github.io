@@ -30,13 +30,7 @@
     </div>
 </header>
 
-<style>
-    .left-container, .right-container {
-        flex: 1 1 45%; /* Containers take up 45% of the available space */
-        max-width: 30%; /* Prevent containers from exceeding 45% width */
-        padding: 20px; /* Add padding for spacing */
-    }
-    
+<style>    
     .left-container {
         position: absolute; /* Absolute positioning */
         top: 50%; /* Center vertically */
@@ -54,15 +48,25 @@
     }
     
     .profile-image {
+        align-items: center; /* Center items vertically, if necessary */
         width: 60%; /* Scales image size */
         max-width: 200px; /* Limit image size on larger screens */
         border-radius: 20%; /* Round image */
         margin-bottom: 20px; /* Add spacing below the image */
     }
     
-    .intro-text-left, .intro-text-right {
+    .intro-text-right {
         font-size: 1.6rem; /* Adjust font size */
         margin-top: 10px;
+    }
+    
+    .intro-text-left {
+        text-transform: none; /* This ensures the text remains case-sensitive */
+        text-align: center; /* Center the text horizontally if needed */
+        font-size: 1.2em;
+        margin-top: 5px; /* Reduced vertical space between heading and text */
+        margin-bottom: 5px; /* Reduced space below the heading */
+        text-transform: none; /* This ensures the text remains case-sensitive */
     }
 
     /* Work for phones */
@@ -74,7 +78,7 @@
 
         /* Position the right container all the way to the left */
         .right-container {
-            position: relative;
+            position: absolute;
             text-align: left;
             top: 15vw; /* Keep it positioned 50% down the screen */
             width: 100%; /* Adjust width as needed */

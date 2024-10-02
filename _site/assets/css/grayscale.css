@@ -86,36 +86,13 @@ a {
 }
 
 .image-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     margin-bottom: 10px; /* Reduced space between image and the text below it */
-}
-
-.intro-text-left {
-    font-size: 1.2em;
-    margin-top: 5px; /* Reduced vertical space between heading and text */
-    margin-bottom: 5px; /* Reduced space below the heading */
+    align-items: center; /* Center items vertically, if necessary */
     text-transform: none; /* This ensures the text remains case-sensitive */
-}
-
-.social-buttons {
-    display: flex; /* Makes the list inline, with items in a row */
-    justify-content: center; /* Center the list items horizontally */
-    gap: 2px; /* Reduced space between the icons */
-}
-
-.social-buttons li {
-    list-style: none; /* Remove bullet points */
-}
-
-.social-buttons li a {
-    text-transform: none; /* Make sure the 'cv' text is case-sensitive */
-    color: #fff; /* Adjust color as needed */
-    margin: 0; /* Ensure no extra margin around links */
-    padding: 0; /* Remove extra padding */
-}
-
-p.intro-text-left {
-    margin-top: 0px; /* Reduced space between paragraphs and buttons */
-    margin-bottom: 0px; /* Reduced space below the text */
+    text-align: center; /* Center the text horizontally if needed */
 }
 
 @media (min-width: 75vw) {
@@ -150,19 +127,17 @@ p.intro-text-left {
 }
 
 ul.social-buttons li a {
-    display: block;
+    display: flex; /* Change to flex to enable centering */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
     width: 40px;
     height: 40px;
-    border: 1px;
-    border-radius: 100%;
-    line-height: 40px;
-    outline: 0;
-    margin-top: 5px;
-
+    border-radius: 50%; /* Use 50% for perfect circular buttons */
+    margin-top: 10px;
+    color: #fff; /* Adjust color as needed */
     background-color: #222;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
     transition: all .3s;
+    text-align: center; /* Center text (in case there’s any) */
 }
 
 ul.social-buttons li a:hover,
@@ -171,3 +146,4 @@ ul.social-buttons li a:active {
     color: #1d1d1d;
     background-color: #7603d4;
 }
+

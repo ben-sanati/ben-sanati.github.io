@@ -105,6 +105,23 @@ a {
     left: 60%; /* Keep it positioned right from the left edge */
 }
 
+/* Work for phones */
+@media (max-width: 768px) {
+    /* Hide the left container on mobile */
+    .left-container {
+        display: none; /* Hide the left container */
+    }
+
+    /* Position the right container all the way to the left */
+    .right-container {
+        flex: 0 0 30vw; /* Keep it 30% wide */
+        text-align: left;
+        position: relative;
+        top: 0%; /* Keep it positioned 50% down the screen */
+        left: 0%; /* Keep it positioned right from the left edge */
+    }
+}
+
 .image-container {
     margin-bottom: 10px; /* Reduced space between image and the text below it */
 }

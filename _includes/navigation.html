@@ -27,18 +27,25 @@
                 {% if page.url contains 'notes' or page.url contains 'projects' or page.url contains 'blog' or page.url contains 'ovw' or page.url contains 'pres'%}
                     <li><a class="page-scroll" href="{{site.baseurl}}/#research">research</a></li>
                     <li><a class="page-scroll" href="{{site.baseurl}}/#experience">experience</a></li>
-
                 {% else %}
                     <li><a class="page-scroll" href="#research">research</a></li>
                     <li><a class="page-scroll" href="#experience">experience</a></li>
                 {% endif %}
+            </ul>
 
+            <!-- Social Buttons -->
+            <ul class="list-inline social-buttons navbar-nav navbar-right">
+                <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                <li><a href="{{ site.url }}/assets/cv/cv_temp.pdf">cv</a></li>
+                <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
+
 
 <style>
     /* Navbar custom styles */
@@ -72,6 +79,15 @@
             margin-left: 20px; /* Add some left margin for spacing */
         }
 
+        /* Show social buttons only in mobile mode */
+        .social-buttons {
+            display: block; /* Show social buttons on mobile */
+            position: absolute; /* Position the social buttons absolutely */
+            right: 0; /* Align to the right */
+            top: 10px; /* Adjust vertical alignment as needed */
+            margin-right: 10px; /* Add right margin for spacing */
+        }
+
         .navbar-custom .navbar-collapse {
             text-align: left; /* Align collapse content to the left */
         }
@@ -84,6 +100,13 @@
 
         .navbar-toggle {
             margin-right: 20px;
+        }
+    }
+
+    /* Hide social buttons on larger screens */
+    @media (min-width: 769px) {
+        .social-buttons {
+            display: none; /* Hide social buttons on desktop */
         }
     }
 </style>

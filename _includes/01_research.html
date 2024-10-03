@@ -26,10 +26,17 @@
         margin-top: 20px;
     }
 
-    /* Ensure full width on smaller screens */
-    @media (max-width: 768px) {
-        .grid-container {
-            grid-template-columns: 1fr;
+    /* Work for phones */
+    @media (orientation: portrait) {
+        .research_box {
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 2px solid #5c00dd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            width: 90vw;
         }
     }
 </style>

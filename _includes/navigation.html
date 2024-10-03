@@ -40,16 +40,48 @@
     <!-- /.container -->
 </nav>
 
-
 <style>
-    /* Ben Sanati button */
+    /* Navbar custom styles */
     .navbar-custom .navbar-brand {
-        position: absolute;
+        /* Center align on desktop */
         left: 10%;
     }
 
     .navbar-custom .navbar-nav {
-        position: absolute;
+        /* Align to the right on desktop */
         right: 10%;
+    }
+
+    /* Mobile styles */
+    @media (orientation: portrait) {
+        .navbar-custom .navbar-brand {
+            /* Reset positioning for mobile */
+            position: relative;
+            left: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar-custom .navbar-nav {
+            position: relative;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            float: none; /* Remove float to ensure proper stacking */
+        }
+
+        .navbar-custom .navbar-collapse {
+            text-align: center;
+        }
+
+        .navbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-toggle {
+            margin-right: 20px;
+        }
     }
 </style>

@@ -79,20 +79,22 @@
             /* Reset positioning for mobile */
             position: relative;
             left: 0;
-            text-align: center;
+            text-align: left; /* Align text to the left */
             width: 100%;
+            margin-left: 20px; /* Add some left margin for spacing */
         }
 
         .navbar-custom .navbar-nav {
             position: relative;
             right: 0;
             width: 100%;
-            text-align: center;
+            text-align: left; /* Align text to the left */
             float: none; /* Remove float to ensure proper stacking */
+            margin-left: 20px; /* Add some left margin for spacing */
         }
 
         .navbar-custom .navbar-collapse {
-            text-align: center;
+            text-align: left; /* Align collapse content to the left */
         }
 
         .navbar-header {
@@ -342,20 +344,6 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px; /* Spacing between boxes */
         margin-top: 20px;
-    }
-
-    /* Work for phones */
-    @media (orientation: portrait) {
-        .research_box {
-            padding: 15px;
-            background-color: #1a1a1a;
-            border: 2px solid #5c00dd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            width: 90vw;
-        }
     }
 </style>
 

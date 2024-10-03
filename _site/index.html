@@ -34,11 +34,10 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    Ben Sanati
-                </a>
-            
+            <!-- Brand Name: This will be visible only on desktop -->
+            <a class="navbar-brand page-scroll" href="#page-top" style="font-weight:italic">
+                Ben Sanati
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +67,6 @@
     <!-- /.container -->
 </nav>
 
-
 <style>
     /* Navbar custom styles */
     .navbar-custom .navbar-brand {
@@ -83,37 +81,6 @@
 
     /* Mobile styles */
     @media (orientation: portrait) {
-        .navbar-custom .navbar-brand {
-            /* Reset positioning for mobile */
-            position: relative;
-            left: 0;
-            text-align: left; /* Align text to the left */
-            width: 100%;
-            margin-left: 20px; /* Add some left margin for spacing */
-        }
-
-        .navbar-custom .navbar-nav {
-            position: relative;
-            right: 0;
-            width: 100%;
-            text-align: left; /* Align text to the left */
-            float: none; /* Remove float to ensure proper stacking */
-            margin-left: 20px; /* Add some left margin for spacing */
-        }
-
-        /* Show social buttons only in mobile mode */
-        .social-buttons {
-            display: block; /* Show social buttons on mobile */
-            position: absolute; /* Position the social buttons absolutely */
-            right: 0; /* Align to the right */
-            top: 10px; /* Adjust vertical alignment as needed */
-            margin-right: 10px; /* Add right margin for spacing */
-        }
-
-        .navbar-custom .navbar-collapse {
-            text-align: left; /* Align collapse content to the left */
-        }
-
         .navbar-header {
             display: flex;
             justify-content: space-between;
@@ -122,6 +89,39 @@
 
         .navbar-toggle {
             margin-right: 20px;
+        }
+
+        .navbar-custom .navbar-collapse {
+            /* Ensure content is stacked properly */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-custom .navbar-nav {
+            width: 100%; /* Full width for mobile */
+            padding: 10px 0; /* Top and bottom padding */
+        }
+
+        .social-buttons {
+            display: block; /* Show social buttons on mobile */
+            margin-top: 10px; /* Add margin for spacing */
+            padding: 10px; /* Add padding for the buttons */
+            width: 100%; /* Full width for buttons */
+            text-align: right; /* Align text to the right */
+        }
+
+        /* Hide the brand name for mobile */
+        .navbar-custom .navbar-brand {
+            display: none; /* Hide brand name */
+        }
+
+        /* Show social buttons at the top of the navbar */
+        .social-buttons {
+            position: absolute; /* Position the social buttons absolutely */
+            right: 0; /* Align to the right */
+            top: 10px; /* Adjust vertical alignment as needed */
+            margin-right: 10px; /* Add right margin for spacing */
         }
     }
 

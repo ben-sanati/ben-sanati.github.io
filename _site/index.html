@@ -113,7 +113,7 @@
                     <div class="image-container">
                         <img src="/assets/img/avatar.jpeg" class="profile-image">
                     </div>
-                    <h1 class="intro-text-left" style="margin-top: 20px;">
+                    <h1 class="intro-text-left">
                         PhD Student<br/>University of Edinburgh
                     </h1>
                     <ul class="list-inline social-buttons" style="margin-top: 5px;">
@@ -135,8 +135,13 @@
     </div>
 </header>
 
-<style>    
+<style>
     .left-container {
+        display: flex; /* Enable flexbox */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        flex-direction: column; /* Align items vertically */
+
         position: absolute; /* Absolute positioning */
         top: 50%; /* Center vertically */
         left: calc(50% - 30vw); /* Position to the left of the central image */
@@ -146,15 +151,19 @@
     }
 
     .right-container {
+        display: flex;
+        justify-content: flex-start; /* Align items to the top */
+        flex-direction: column; /* Align content vertically */
+        
         position: absolute; /* Absolute positioning */
-        top: 30%; /* Center vertically */
         left: calc(50% + 15vw); /* Position to the right of the central image */
+        width: 30vw; /* Adjust width as needed */
         z-index: 2; /* Sit above the background */
     }
     
     .profile-image {
         align-items: center; /* Center items vertically, if necessary */
-        width: 60%; /* Scales image size */
+        width: 80%; /* Scales image size */
         max-width: 200px; /* Limit image size on larger screens */
         border-radius: 20%; /* Round image */
         margin-bottom: 20px; /* Add spacing below the image */
@@ -186,7 +195,7 @@
             position: absolute;
             text-transform: none; /* This ensures the text remains case-sensitive */
             text-align: center; /* Center the text horizontally if needed */
-            top: 0vw; /* Keep it positioned 50% down the screen */
+            top: 10vw; /* Keep it positioned 50% down the screen */
             width: 100%; /* Adjust width as needed */
             left: 0vw; /* Keep it positioned right from the left edge */
         }
@@ -199,35 +208,66 @@
 
 <!-- Typwriting js code -->
 <script>
-    // Text to display
+    // Full text to display in the typewriter
     const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
-
-    // Check if the device is in portrait mode
-    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-
-    // If in portrait mode, only take the text up to the first newline
-    const text = isPortrait ? fullText.split('\n')[0] : fullText;
-
+    
     let index = 0; // Start at the first character
     const speed = 5; // Typewriter speed in milliseconds
 
+    // Function to measure the height of the text container after adding the full text invisibly
+    function calculateFinalContainerHeight() {
+        const typewriterText = document.getElementById("typewriter-text");
+
+        // Temporarily apply full text to measure height
+        typewriterText.innerHTML = fullText.replace(/\n/g, "<br>"); // Replace newlines with <br> tags for measurement
+        
+        // Measure the height after adding the full text
+        const finalHeight = document.querySelector('.right-container').scrollHeight;
+        
+        // Reset the innerHTML (clear it)
+        typewriterText.innerHTML = '';
+
+        return finalHeight;
+    }
+
+    // Function to adjust the top position of the right container based on its final height
+    function positionContainer() {
+        const rightContainer = document.querySelector('.right-container');
+        
+        // Get the final estimated height
+        const finalHeight = calculateFinalContainerHeight();
+        
+        // Calculate the top position so the center of the container is 50% of the screen height
+        const halfWindowHeight = window.innerHeight / 2;
+        const topPosition = halfWindowHeight - (finalHeight / 2);
+        
+        // Apply the calculated top position
+        rightContainer.style.top = `${topPosition}px`;
+    }
+
+    // Function to typewrite text character by character
     function typeWriter() {
+        const typewriterText = document.getElementById("typewriter-text");
+
         // Check if the text is fully displayed
-        if (index < text.length) {
-            const currentChar = text.charAt(index);
-            // Replace newline characters with <br> tags (if needed)
-            document.getElementById("typewriter-text").innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
+        if (index < fullText.length) {
+            const currentChar = fullText.charAt(index);
+            typewriterText.innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
             index++;
             setTimeout(typeWriter, speed); // Call this function again after 'speed' milliseconds
         }
     }
 
-    // Start the typing effect after the page loads
+    // Start the positioning and typewriting effect once the page loads
     window.onload = function() {
+        // First, position the container based on the final size of the text
+        positionContainer();
+        
+        // Then, start the typewriter effect to write the text
         typeWriter();
     };
-
 </script>
+
 
 
 

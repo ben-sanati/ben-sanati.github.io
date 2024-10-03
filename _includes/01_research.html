@@ -10,6 +10,8 @@
         transition: all 0.3s ease;
         color: #fff;
         font-family: 'Courier New', Courier, monospace;
+        width: 92%; /* Set default width */
+        margin: 0 auto; /* Center the box on larger screens */
     }
 
     .research_box:hover {
@@ -22,10 +24,24 @@
     .grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 100%; /* Full width */
         gap: 20px; /* Spacing between boxes */
         margin-top: 20px;
     }
+
+    /* Mobile styles */
+    @media (max-width: 768px) { /* Adjust the max-width as needed for your design */
+        .grid-container {
+            grid-template-columns: 1fr; /* 1 box per row */
+        }
+
+        .research_box {
+            width: 92%; /* Each box takes 92% of the width */
+            margin: 10px auto; /* Add some margin on top and bottom */
+        }
+    }
 </style>
+
 
 <div style="padding-left: 5%; padding-right: 5%;">
     <div style="width: 100%; padding: 8px; margin-bottom: 20px; text-align: center; font-size: large;">

@@ -294,15 +294,17 @@
 
     // Start the positioning and typewriting effect once the page loads
     window.onload = function() {
-        // First, position the container based on the final size of the text
-        positionContainer();
-        
-        // Then, start the typewriter effect to write the text
-        typeWriter();
+        // Check if the device is in portrait mode
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            // In portrait mode, skip the container positioning and only run the typewriter
+            typeWriter();
+        } else {
+            // Not in portrait mode, position the container based on the final size of the text
+            positionContainer();
+            typeWriter();
+        }
     };
 </script>
-
-
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

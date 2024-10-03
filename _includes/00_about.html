@@ -143,10 +143,15 @@
     // Function to typewrite text character by character
     function typeWriter() {
         const typewriterText = document.getElementById("typewriter-text");
+        
+        // Determine the effective text to type in portrait mode
+        const effectiveText = window.matchMedia("(orientation: portrait)").matches
+            ? fullText.split("\n")[0] // Only take the first line if in portrait mode
+            : fullText; // Use the full text otherwise
 
         // Check if the text is fully displayed
-        if (index < fullText.length) {
-            const currentChar = fullText.charAt(index);
+        if (index < effectiveText.length) {
+            const currentChar = effectiveText.charAt(index);
             typewriterText.innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
             index++;
             setTimeout(typeWriter, speed); // Call this function again after 'speed' milliseconds
@@ -166,3 +171,4 @@
         }
     };
 </script>
+

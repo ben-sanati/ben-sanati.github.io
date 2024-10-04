@@ -22,8 +22,8 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-main-collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                 <li class="hidden">
                     <a href="#page-top"></a>
@@ -32,10 +32,12 @@
                 {% if page.url contains 'notes' or page.url contains 'projects' or page.url contains 'blog' or page.url contains 'ovw' or page.url contains 'pres'%}
                     <li><a class="page-scroll" href="{{site.baseurl}}/#research">research</a></li>
                     <li><a class="page-scroll" href="{{site.baseurl}}/#experience">experience</a></li>
+
                 {% else %}
                     <li><a class="page-scroll" href="#research">research</a></li>
                     <li><a class="page-scroll" href="#experience">experience</a></li>
                 {% endif %}
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -45,83 +47,44 @@
 
 
 <style>
-    /* Navbar custom styles */
-    .navbar-custom .container {
-        display: flex;
-        justify-content: space-between;  /* Space between brand, middle, and right */
-        align-items: center;             /* Vertically center all items */
+    /* Ben Sanati */
+    .navbar-custom .navbar-brand {
+        position: absolute;
+        left: 20%;
     }
 
-    .navbar-custom .navbar-header,
-    .navbar-custom .navbar-main-collapse,
+    /* Socials buttons */
     .navbar-custom .navbar-middle {
-        display: flex;
-        align-items: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
     }
 
-    /* Center-align social buttons */
-    .social-buttons-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;       /* Center horizontally */
-        width: fit-content;
+    /* Research & experience buttons */
+    .navbar-custom .navbar-nav {
+        position: absolute;
+        right: 20%;
     }
 
     /* Mobile styles */
     @media (max-width: 768px) {
-        /* Hide the brand name for mobile */
+        /* Ben Sanati */
         .navbar-custom .navbar-brand {
             display: none; /* Hide brand name */
         }
-        
-        .navbar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%; /* Make the header full-width */
+
+        /* Socials buttons */
+        .navbar-custom .navbar-middle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
         }
 
-        .navbar-toggle {
-            margin-left: 0px; /* Align the toggle button to the left */
-        }
-
-        .navbar-custom .navbar-collapse {
-            /* Ensure content is stacked properly */
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            align-items: flex-start; /* Align items to the left */
-            width: 100%;
-            padding: 10px 0; /* Padding for spacing */
-        }
-
-        /* Left navigation buttons for mobile */
-        .navbar-nav {
-            width: 100%; /* Full width for mobile */
-            display: flex;
-            justify-content: flex-start; /* Align navigation links to the left */
-            padding: 0; /* Reset padding */
-        }
-
-        /* Social Buttons */
-        .social-buttons-nav {
-            display: flex; /* Show social buttons on mobile */
-            justify-content: center; /* Align buttons to the center */
-            width: 100%; /* Full width for buttons */
-            margin: 0; /* Reset margin */
-            padding: 0; /* Reset padding */
-            gap: 5px; /* Smaller gap between buttons */
-        }
-
-        .social-buttons-nav li {
-            display: inline; /* Ensure inline display for buttons */
-        }
-
-        /* Adjust the toggle dropdown alignment */
-        .navbar-main-collapse {
-            justify-content: flex-start; /* Align dropdown links to the left */
-            width: 100%;
-        }
+        /* Research & experience buttons */
+        .navbar-custom .navbar-nav {
+            position: absolute;
+            left: 0px;
+        }        
     }
 
     /* Keep the buttons on the right side for desktop */

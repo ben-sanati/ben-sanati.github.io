@@ -72,6 +72,11 @@
 
 
 <style>
+    .navbar-custom .navbar-nav {
+        display: flex; /* Ensure the nav is displayed flexibly */
+        justify-content: flex-end; /* Keep buttons on the right */
+    }
+
     /* Ben Sanati */
     .navbar-custom .navbar-brand {
         position: absolute;
@@ -93,6 +98,11 @@
 
     /* Mobile styles */
     @media (max-width: 768px) {
+        .navbar-custom .navbar-nav {
+            display: flex; /* Ensure the nav is displayed flexibly */
+            justify-content: flex-end; /* Keep buttons on the right */
+        }
+
         /* Ben Sanati */
         .navbar-custom .navbar-brand {
             display: none; /* Hide brand name */
@@ -109,17 +119,19 @@
         .navbar-custom .navbar-nav {
             position: absolute;
             left: 0px;
-        }        
-    }
+        }
 
-    /* Keep the buttons on the right side for desktop */
-    @media (min-width: 769px) {
-        .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
+        /* Move the hamburger menu to the left */
+        .navbar-custom .navbar-header {
+            width: 100%; /* Ensure the navbar-header spans full width */
+            display: flex;
+            justify-content: flex-start; /* Align the toggle button to the left */
+        }
+
+        .navbar-custom .navbar-toggle {
+            margin-left: 0; /* Remove default margin */
         }
     }
-
 </style>
 
     

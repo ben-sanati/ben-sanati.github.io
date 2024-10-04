@@ -73,34 +73,55 @@
 
     /* Mobile styles */
     @media (max-width: 768px) {
-        .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
-        }
-
-        /* Ben Sanati */
+        /* Hide the brand name */
         .navbar-custom .navbar-brand {
-            display: none; /* Hide brand name */
-        }
-
-        /* Socials buttons */
-        .navbar-custom .navbar-middle {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-        }
-
-        /* Research & experience buttons */
-        .navbar-custom .navbar-nav {
-            position: absolute;
-            left: 0px;
+            display: none;
         }
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: 100%; /* Ensure the navbar-header spans full width */
+            width: 100%;
             display: flex;
-            justify-content: flex-start; /* Align the toggle button to the left */
+            justify-content: flex-start;
+        }
+
+        .navbar-custom .navbar-toggle {
+            margin-left: 0;
+        }
+
+        /* Social Buttons Centered */
+        .navbar-custom .navbar-middle {
+            position: relative; /* Remove absolute positioning */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            width: 100%;
+            margin-top: 20px; /* Adjust the margin if necessary */
+        }
+
+        /* Research & Experience buttons aligned vertically */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            width: 100%; /* Take up full width */
+            text-align: left;
+            padding-left: 0; /* Align text to the left */
+        }
+
+        .navbar-custom .navbar-nav > li {
+            display: block; /* Make each menu item appear on a new line */
+            width: 100%;
+        }
+
+        /* Ensure the collapse menu stays open when clicked */
+        .navbar-collapse {
+            display: block !important; /* Ensure the collapse menu stays open */
+        }
+
+        /* Optional: Add some spacing between menu items */
+        .navbar-custom .navbar-nav > li > a {
+            padding: 10px 15px; /* Adjust the padding as needed */
         }
     }
+
 </style>

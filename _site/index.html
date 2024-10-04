@@ -40,9 +40,19 @@
             </a>
         </div>
 
+        <div class="navbar-middle">
+            <!-- Social Buttons -->
+            <ul class="list-inline social-buttons-nav navbar-nav navbar-right">
+                <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                <li><a href="http://0.0.0.0:4000/assets/cv/cv_temp.pdf">cv</a></li>
+                <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
+            </ul>
+        </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="nav navbar-nav navbar-right">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                 <li class="hidden">
                     <a href="#page-top"></a>
@@ -53,34 +63,39 @@
                     <li><a class="page-scroll" href="#experience">experience</a></li>
                 
             </ul>
-
-            <!-- Social Buttons -->
-            <ul class="list-inline social-buttons navbar-nav navbar-right">
-                <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
-                <li><a href="http://0.0.0.0:4000/assets/cv/cv_temp.pdf">cv</a></li>
-                <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
-            </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
 
+
 <style>
     /* Navbar custom styles */
-    .navbar-custom .navbar-brand {
-        /* Center align on desktop */
-        left: 10%;
+    .navbar-custom .container {
+        display: flex;
+        justify-content: space-between;  /* Space between brand, middle, and right */
+        align-items: center;             /* Vertically center all items */
     }
 
-    .navbar-custom .navbar-nav {
-        /* Align to the right on desktop */
-        right: 10%;
+    .navbar-custom .navbar-header,
+    .navbar-custom .navbar-main-collapse,
+    .navbar-custom .navbar-middle {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Center-align social buttons */
+    .social-buttons-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;       /* Center horizontally */
+        width: fit-content;
     }
 
     /* Mobile styles */
-    @media (orientation: portrait) {
+    @media (max-width: 768px) {
         .navbar-header {
             display: flex;
             justify-content: space-between;
@@ -91,44 +106,48 @@
             margin-right: 20px;
         }
 
-        .navbar-custom .navbar-collapse {
-            /* Ensure content is stacked properly */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .navbar-custom .navbar-nav {
-            width: 100%; /* Full width for mobile */
-            padding: 10px 0; /* Top and bottom padding */
-        }
-
-        .social-buttons {
-            display: block; /* Show social buttons on mobile */
-            margin-top: 10px; /* Add margin for spacing */
-            padding: 10px; /* Add padding for the buttons */
-            width: 100%; /* Full width for buttons */
-            text-align: right; /* Align text to the right */
-        }
-
         /* Hide the brand name for mobile */
         .navbar-custom .navbar-brand {
             display: none; /* Hide brand name */
         }
 
-        /* Show social buttons at the top of the navbar */
-        .social-buttons {
-            position: absolute; /* Position the social buttons absolutely */
-            right: 0; /* Align to the right */
-            top: 10px; /* Adjust vertical alignment as needed */
-            margin-right: 10px; /* Add right margin for spacing */
+        .navbar-custom .navbar-collapse {
+            /* Ensure content is stacked properly */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: flex-start; /* Align items to the left */
+            width: 100%;
+            padding: 10px 0; /* Padding for spacing */
+        }
+
+        /* Left navigation buttons for mobile */
+        .navbar-nav {
+            width: 100%; /* Full width for mobile */
+            display: flex;
+            justify-content: flex-start; /* Align navigation links to the left */
+            padding: 0; /* Reset padding */
+        }
+
+        /* Social Buttons */
+        .social-buttons-nav {
+            display: flex; /* Show social buttons on mobile */
+            justify-content: flex-end; /* Align buttons to the right */
+            width: 100%; /* Full width for buttons */
+            margin: 0; /* Reset margin */
+            padding: 0; /* Reset padding */
+            gap: 5px; /* Smaller gap between buttons */
+        }
+
+        .social-buttons-nav li {
+            display: inline; /* Ensure inline display for buttons */
         }
     }
 
-    /* Hide social buttons on larger screens */
+    /* Keep the buttons on the right side for desktop */
     @media (min-width: 769px) {
-        .social-buttons {
-            display: none; /* Hide social buttons on desktop */
+        .navbar-custom .navbar-nav {
+            display: flex; /* Ensure the nav is displayed flexibly */
+            justify-content: flex; /* Keep buttons on the right */
         }
     }
 </style>

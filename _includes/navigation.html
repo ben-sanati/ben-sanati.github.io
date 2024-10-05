@@ -73,41 +73,51 @@
 
     /* Mobile styles */
     @media (max-width: 768px) {
-        .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
-        }
-
-        /* Ben Sanati */
-        .navbar-custom .navbar-brand {
-            display: none; /* Hide brand name */
-        }
-
-        /* Socials buttons */
-        .navbar-custom .navbar-middle {
-            position: relative;
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
-
-        /* Research & experience buttons */
-        .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
+        /* Full-width navbar */
+        .navbar-custom {
             width: 100%;
-            text-align: left;
         }
 
-        /* Move the hamburger menu to the left */
+        /* Align hamburger and social buttons in the same row */
         .navbar-custom .navbar-header {
-            width: 100%; /* Ensure the navbar-header spans full width */
             display: flex;
-            justify-content: flex-start; /* Align the toggle button to the left */
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; /* Span full width */
         }
 
+        /* Hamburger menu */
         .navbar-custom .navbar-toggle {
             margin-left: 0;
+        }
+
+        /* Social Buttons */
+        .navbar-custom .social-buttons-nav {
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Prevents wrapping of social buttons */
+        .navbar-custom .social-buttons-nav li {
+            display: inline-block;
+        }
+
+        /* Collapse the navbar links and display them only when hamburger is clicked */
+        .navbar-custom .navbar-collapse {
+            display: none; /* Hide until triggered */
+        }
+
+        /* Ensure the navbar height matches the hamburger menu */
+        .navbar-custom {
+            height: auto; /* Adjust height based on the content (hamburger and social buttons) */
+        }
+
+        /* Keep social buttons and hamburger on the same row without line breaks */
+        .navbar-custom .navbar-header, 
+        .navbar-custom .social-buttons-nav {
+            white-space: nowrap; /* Prevents wrapping to a new line */
         }
     }
 </style>

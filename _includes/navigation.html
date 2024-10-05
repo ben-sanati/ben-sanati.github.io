@@ -71,8 +71,14 @@
         right: 20%;
     }
 
-    /* Mobile styles */
     @media (max-width: 768px) {
+        /* Set the container to flex to align items properly */
+        .navbar-custom .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Aligns items vertically in the center */
+            width: 100%;
+        }
 
         /* Hide brand name */
         .navbar-custom .navbar-brand {
@@ -81,30 +87,25 @@
 
         /* Center social buttons */
         .navbar-custom .navbar-middle {
-            position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            flex-grow: 1; /* Allows it to take up available space */
         }
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: 100%;
             display: flex;
             justify-content: flex-start;
         }
 
-        /* Research & experience buttons */
-        .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            width: 100%; 
-            text-align: left;
-        }
-
+        /* Remove any margin that may offset the hamburger menu */
         .navbar-custom .navbar-toggle {
             margin-left: 0;
         }
-    }
 
+        /* Hide research & experience buttons */
+        .navbar-custom .navbar-nav {
+            display: none;
+        }
+    }
 </style>

@@ -87,16 +87,19 @@
             align-items: center;
         }
 
-        /* Show only social buttons and hamburger menu */
-        .navbar-custom .navbar-nav {
-            display: none; /* Hide research & experience links */
-        }
-
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
             width: 100%;
             display: flex;
             justify-content: flex-start;
+        }
+
+        /* Research & experience buttons */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            width: 100%; 
+            text-align: left;
         }
 
         .navbar-custom .navbar-toggle {

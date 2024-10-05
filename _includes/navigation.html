@@ -81,7 +81,7 @@
         .navbar-custom .navbar-middle {
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
+            /* transform: translateX(-50%); */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -96,8 +96,10 @@
 
         /* Hide the nav links */
         .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
+            position: static;
+            display: block;
+            width: 100%; 
+            text-align: left;
         }
 
         .navbar-custom .navbar-toggle {

@@ -78,35 +78,51 @@
             width: 100%;
         }
 
-        /* Align hamburger and social buttons in the same row */
-        .navbar-custom .navbar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%; /* Span full width */
+        .navbar-custom .navbar-nav {
+            display: flex; /* Ensure the nav is displayed flexibly */
+            justify-content: flex-end; /* Keep buttons on the right */
         }
 
-        /* Hamburger menu */
-        .navbar-custom .navbar-toggle {
-            margin-left: 0;
+        /* Ben Sanati */
+        .navbar-custom .navbar-brand {
+            display: none; /* Hide brand name */
         }
 
-        /* Social Buttons */
+        /* Socials buttons */
         .navbar-custom .social-buttons-nav {
+            position: relative;
             display: flex;
-            justify-content: flex-end;
-            margin: 0;
-            padding: 0;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
         }
 
-        /* Prevents wrapping of social buttons */
         .navbar-custom .social-buttons-nav li {
             display: inline-block;
         }
 
-        /* Collapse the navbar links and display them only when hamburger is clicked */
+        /* Research & experience buttons */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        /* Move the hamburger menu to the left */
+        .navbar-custom .navbar-header {
+            width: 100%; /* Ensure the navbar-header spans full width */
+            display: flex;
+            justify-content: flex-start; /* Align the toggle button to the left */
+        }
+
+        /* collapse the navbar links and display them only when hamburger is clicked */
         .navbar-custom .navbar-collapse {
-            display: none; /* Hide until triggered */
+            display: none;
+            width: 100%;
+        }
+
+        .navbar-custom .navbar-toggle {
+            margin-left: 0;
         }
 
         /* Ensure the navbar height matches the hamburger menu */

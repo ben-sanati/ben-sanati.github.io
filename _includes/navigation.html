@@ -83,13 +83,19 @@
             display: none; /* Hide brand name */
         }
 
+        /* Align hamburger and social buttons on the same row */
+        .navbar-custom .navbar-header {
+            width: 100%; /* Full width for the header */
+            display: flex;
+            justify-content: space-between; /* Space between social buttons and toggle */
+            align-items: center; /* Vertically align */
+        }
+
         /* Socials buttons */
         .navbar-custom .navbar-middle {
-            position: relative;
+            position: static;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            width: 100%;
+            justify-content: flex-end; /* Align social buttons to the right */
         }
 
         /* Research & experience buttons */
@@ -100,13 +106,7 @@
             text-align: left;
         }
 
-        /* Move the hamburger menu to the left */
-        .navbar-custom .navbar-header {
-            width: 100%; /* Ensure the navbar-header spans full width */
-            display: flex;
-            justify-content: flex-start; /* Align the toggle button to the left */
-        }
-
+        /* Hamburger Menu - Aligned on the left */
         .navbar-custom .navbar-toggle {
             margin-left: 0;
         }

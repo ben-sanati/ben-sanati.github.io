@@ -73,41 +73,35 @@
 
     /* Mobile styles */
     @media (max-width: 768px) {
-        .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
-        }
 
-        /* Ben Sanati */
+        /* Hide brand name */
         .navbar-custom .navbar-brand {
-            display: none; /* Hide brand name */
+            display: none;
         }
 
-        /* Socials buttons */
+        /* Center social buttons */
         .navbar-custom .navbar-middle {
             position: relative;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Research & experience buttons */
+        /* Show only social buttons and hamburger menu */
         .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            width: 100%; 
-            text-align: left;
+            display: none; /* Hide research & experience links */
         }
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: 100%; /* Ensure the navbar-header spans full width */
+            width: 100%;
             display: flex;
-            justify-content: flex-start; /* Align the toggle button to the left */
+            justify-content: flex-start;
         }
 
         .navbar-custom .navbar-toggle {
             margin-left: 0;
         }
     }
+
 </style>

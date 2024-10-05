@@ -74,42 +74,37 @@
     /* Mobile styles */
     @media (max-width: 768px) {
 
-        /* Set the container to flex to align items properly */
-        .navbar-custom .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
         /* Hide brand name */
         .navbar-custom .navbar-brand {
             display: none;
         }
 
-        /* Ensure social buttons are centered horizontally */
+        /* Center social buttons */
         .navbar-custom .navbar-middle {
+            position: absolute;
             display: flex;
             justify-content: center;
-            flex-grow: 1; /* Allow it to take available space */
+            align-items: center;
         }
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
+            width: 100%;
             display: flex;
             justify-content: flex-start;
         }
 
-        /* Remove any margin that may offset the hamburger menu */
+        /* Research & experience buttons */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            width: 100%; 
+            text-align: left;
+        }
+
         .navbar-custom .navbar-toggle {
             margin-left: 0;
         }
-
-        /* Hide research & experience buttons */
-        .navbar-custom .navbar-nav {
-            display: none;
-        }
     }
-
 
 </style>

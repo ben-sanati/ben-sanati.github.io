@@ -71,9 +71,7 @@
         right: 20%;
     }
 
-    /* Mobile styles */
     @media (max-width: 768px) {
-
         /* Hide brand name */
         .navbar-custom .navbar-brand {
             display: none;
@@ -81,7 +79,9 @@
 
         /* Center social buttons */
         .navbar-custom .navbar-middle {
-            position: relative;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,17 +89,14 @@
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: 100%;
+            width: auto;
             display: flex;
             justify-content: flex-start;
         }
 
-        /* Research & experience buttons */
+        /* Hide the nav links */
         .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            width: 100%; 
-            text-align: left;
+            display: none;
         }
 
         .navbar-custom .navbar-toggle {

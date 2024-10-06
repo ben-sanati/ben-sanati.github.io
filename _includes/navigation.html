@@ -77,16 +77,6 @@
             display: none;
         }
 
-        /* Center social buttons */
-        .navbar-custom .navbar-middle {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
             width: auto;
@@ -94,7 +84,7 @@
             justify-content: flex-start;
         }
 
-        
+
         /* Hide the nav links */
         .navbar-custom .navbar-nav {
             position: static;
@@ -105,6 +95,15 @@
 
         .navbar-custom .navbar-toggle {
             margin-left: 0;
+        }
+
+        /* Center social buttons */
+        .navbar-custom .navbar-middle {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 50px; /* Offset to prevent overlap with hamburger */
         }
     }
 

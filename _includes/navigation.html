@@ -79,9 +79,9 @@
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: auto;
             display: flex;
             justify-content: flex-start;
+            width: auto;
         }
 
 
@@ -99,12 +99,20 @@
 
         /* Center social buttons */
         .navbar-custom .navbar-middle {
-            flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-right: 50px; /* Offset to prevent overlap with hamburger */
+            width: 100%;  /* Occupy full width of the navbar */
+        }
+
+        /* Prevent social buttons from wrapping into two lines */
+        .navbar-custom .social-buttons-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;  /* Add spacing between icons */
+            width: auto;
+            flex-wrap: nowrap;  /* Prevent wrapping */
         }
     }
-
 </style>

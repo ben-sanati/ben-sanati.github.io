@@ -81,9 +81,9 @@
         .navbar-custom .navbar-header {
             display: flex;
             justify-content: flex-start;
-            width: auto;
+            width: 100%;
+            position: relative;
         }
-
 
         /* Hide the nav links */
         .navbar-custom .navbar-nav {
@@ -98,6 +98,9 @@
 
         /* Center social buttons */
         .navbar-custom .navbar-middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             align-items: center;

@@ -96,44 +96,49 @@
         right: 20%;
     }
 
-    /* Mobile styles */
     @media (max-width: 768px) {
-        .navbar-custom .navbar-nav {
-            display: flex; /* Ensure the nav is displayed flexibly */
-            justify-content: flex-end; /* Keep buttons on the right */
-        }
-
-        /* Ben Sanati */
+        /* Hide brand name */
         .navbar-custom .navbar-brand {
-            display: none; /* Hide brand name */
-        }
-
-        /* Socials buttons */
-        .navbar-custom .navbar-middle {
-            position: relative;
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            width: 100%;
-        }
-
-        /* Research & experience buttons */
-        .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            width: 100%; 
-            text-align: left;
+            display: none;
         }
 
         /* Move the hamburger menu to the left */
         .navbar-custom .navbar-header {
-            width: 100%; /* Ensure the navbar-header spans full width */
             display: flex;
-            justify-content: flex-start; /* Align the toggle button to the left */
+            justify-content: flex-start;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Hide the nav links */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            text-align: left;
         }
 
         .navbar-custom .navbar-toggle {
             margin-left: 0;
+        }
+
+        /* Center social buttons */
+        .navbar-custom .navbar-middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Prevent social buttons from wrapping into two lines */
+        .navbar-custom .social-buttons-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1px;  /* Add spacing between icons */
+            width: auto;
+            flex-wrap: nowrap;  /* Prevent wrapping */
         }
     }
 </style>
@@ -399,10 +404,10 @@
 
     <!-- Grid container for 2x2 layout -->
     <div class="grid-container">
-        <div class="research_box"><strong>🎯 Zero-Shot Generalisation</strong><br>Show a monkey how to stack some bricks, and it’ll ace the job no matter the shape, color, or pose. Teach the same trick to a DL model, and watch it have an aneurism because the colour of the brick changed. Personally, I'm not a fan of drowning models in heaps of training data, so how do we craft <strong>domain-invariant</strong> policies?”
+        <div class="research_box"><strong>🎯 Zero-Shot Generalisation</strong><br>Show a monkey how to stack some bricks, and it’ll ace the job no matter the shape, color, or pose. Teach the same trick to a DL model, and watch it have an aneurism when the colour of the brick changes. Personally, I'm not a fan of drowning models in heaps of training data, so how do we craft <strong>domain-invariant</strong> policies?
             <br><br>
             <a href="https://arxiv.org/abs/2111.09794">Zero-shot Generalisation in DRL Survey</a> - really nice survey on this topic by the lot in DARK labs, UCL.<br>
-            <a href="https://arxiv.org/abs/2107.12808">Open-Ended Learning</a> - I can't tell if I love or hate this paper yet, but I know you have to read it.<br>
+            <a href="https://arxiv.org/abs/2107.12808">Open-Ended Learning</a> - Even if you don't want to read this, at least get lost in the visualisations 🤤.<br>
             <a href="https://ieeexplore.ieee.org/document/9847099?arnumber=9847099">Domain Generalisation Survey</a> - a broader look at the problem of domain invariance.<br>
             <a href="https://arxiv.org/abs/2202.00104">Generalisation in Cooperative MARL</a> - an interesting look into comnbinatorial generalisation.
         </div>

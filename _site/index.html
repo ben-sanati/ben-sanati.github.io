@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Add viewport meta tag -->
     <!--<head>-->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,11 +34,20 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    Ben Sanati
-                </a>
-            
+            <!-- Brand Name: This will be visible only on desktop -->
+            <a class="navbar-brand page-scroll" href="#page-top" style="font-weight:italic">
+                Ben Sanati
+            </a>
+        </div>
+
+        <div class="navbar-middle">
+            <!-- Social Buttons -->
+            <ul class="list-inline social-buttons-nav navbar-nav navbar-right">
+                <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                <li><a href="http://0.0.0.0:4000/assets/cv/cv_temp.pdf">cv</a></li>
+                <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
+            </ul>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,17 +72,77 @@
 
 
 <style>
-    /* Ben Sanati button */
-    .navbar-custom .navbar-brand {
-        position: absolute;
-        left: 10%;
+    .navbar-custom .navbar-nav {
+        display: flex; /* Ensure the nav is displayed flexibly */
+        justify-content: flex-end; /* Keep buttons on the right */
     }
 
+    /* Ben Sanati */
+    .navbar-custom .navbar-brand {
+        position: absolute;
+        left: 20%;
+    }
+
+    /* Socials buttons */
+    .navbar-custom .navbar-middle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    /* Research & experience buttons */
     .navbar-custom .navbar-nav {
         position: absolute;
-        right: 10%;
+        right: 20%;
+    }
+
+    @media (max-width: 768px) {
+        /* Hide brand name */
+        .navbar-custom .navbar-brand {
+            display: none;
+        }
+
+        /* Move the hamburger menu to the left */
+        .navbar-custom .navbar-header {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Hide the nav links */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            text-align: left;
+        }
+
+        .navbar-custom .navbar-toggle {
+            margin-left: 0;
+        }
+
+        /* Center social buttons */
+        .navbar-custom .navbar-middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Prevent social buttons from wrapping into two lines */
+        .navbar-custom .social-buttons-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1px;  /* Add spacing between icons */
+            width: auto;
+            flex-wrap: nowrap;  /* Prevent wrapping */
+        }
     }
 </style>
+
     
 <script src="/assets/js/jquery.js"></script> <!-- jQuery -->
 <script src="/assets/js/bootstrap.min.js"></script><!-- Bootstrap Core JavaScript -->
@@ -113,7 +183,7 @@
                     <div class="image-container">
                         <img src="/assets/img/avatar.jpeg" class="profile-image">
                     </div>
-                    <h1 class="intro-text-left" style="margin-top: 20px;">
+                    <h1 class="intro-text-left">
                         PhD Student<br/>University of Edinburgh
                     </h1>
                     <ul class="list-inline social-buttons" style="margin-top: 5px;">
@@ -135,8 +205,13 @@
     </div>
 </header>
 
-<style>    
+<style>
     .left-container {
+        display: flex; /* Enable flexbox */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        flex-direction: column; /* Align items vertically */
+
         position: absolute; /* Absolute positioning */
         top: 50%; /* Center vertically */
         left: calc(50% - 30vw); /* Position to the left of the central image */
@@ -146,15 +221,19 @@
     }
 
     .right-container {
+        display: flex;
+        justify-content: flex-start; /* Align items to the top */
+        flex-direction: column; /* Align content vertically */
+        
         position: absolute; /* Absolute positioning */
-        top: 30%; /* Center vertically */
         left: calc(50% + 15vw); /* Position to the right of the central image */
+        width: 30vw; /* Adjust width as needed */
         z-index: 2; /* Sit above the background */
     }
     
     .profile-image {
         align-items: center; /* Center items vertically, if necessary */
-        width: 60%; /* Scales image size */
+        width: 80%; /* Scales image size */
         max-width: 200px; /* Limit image size on larger screens */
         border-radius: 20%; /* Round image */
         margin-bottom: 20px; /* Add spacing below the image */
@@ -175,7 +254,7 @@
     }
 
     /* Work for phones */
-    @media (orientation: portrait) {
+    @media (max-width: 768px) {
         /* Hide the left container on mobile */
         .left-container {
             display: none; /* Hide the left container */
@@ -186,7 +265,7 @@
             position: absolute;
             text-transform: none; /* This ensures the text remains case-sensitive */
             text-align: center; /* Center the text horizontally if needed */
-            top: 0vw; /* Keep it positioned 50% down the screen */
+            top: 10vw; /* Keep it positioned 10% down the screen */
             width: 100%; /* Adjust width as needed */
             left: 0vw; /* Keep it positioned right from the left edge */
         }
@@ -199,34 +278,73 @@
 
 <!-- Typwriting js code -->
 <script>
-    // Text to display
+    // Full text to display in the typewriter
     const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
-
-    // Check if the device is in portrait mode
-    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-
-    // If in portrait mode, only take the text up to the first newline
-    const text = isPortrait ? fullText.split('\n')[0] : fullText;
-
+    
     let index = 0; // Start at the first character
     const speed = 5; // Typewriter speed in milliseconds
 
+    // Function to measure the height of the text container after adding the full text invisibly
+    function calculateFinalContainerHeight() {
+        const typewriterText = document.getElementById("typewriter-text");
+
+        // Temporarily apply full text to measure height
+        typewriterText.innerHTML = fullText.replace(/\n/g, "<br>"); // Replace newlines with <br> tags for measurement
+        
+        // Measure the height after adding the full text
+        const finalHeight = document.querySelector('.right-container').scrollHeight;
+        
+        // Reset the innerHTML (clear it)
+        typewriterText.innerHTML = '';
+
+        return finalHeight;
+    }
+
+    // Function to adjust the top position of the right container based on its final height
+    function positionContainer() {
+        const rightContainer = document.querySelector('.right-container');
+        
+        // Get the final estimated height
+        const finalHeight = calculateFinalContainerHeight();
+        
+        // Calculate the top position so the center of the container is 50% of the screen height
+        const halfWindowHeight = window.innerHeight / 2;
+        const topPosition = halfWindowHeight - (finalHeight / 2);
+        
+        // Apply the calculated top position
+        rightContainer.style.top = `${topPosition}px`;
+    }
+
+    // Function to typewrite text character by character
     function typeWriter() {
+        const typewriterText = document.getElementById("typewriter-text");
+        
+        // Determine the effective text to type in portrait mode
+        const effectiveText = window.matchMedia("(orientation: portrait)").matches
+            ? fullText.split("\n")[0] // Only take the first line if in portrait mode
+            : fullText; // Use the full text otherwise
+
         // Check if the text is fully displayed
-        if (index < text.length) {
-            const currentChar = text.charAt(index);
-            // Replace newline characters with <br> tags (if needed)
-            document.getElementById("typewriter-text").innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
+        if (index < effectiveText.length) {
+            const currentChar = effectiveText.charAt(index);
+            typewriterText.innerHTML += (currentChar === "\n" ? "<br>" : currentChar);
             index++;
             setTimeout(typeWriter, speed); // Call this function again after 'speed' milliseconds
         }
     }
 
-    // Start the typing effect after the page loads
+    // Start the positioning and typewriting effect once the page loads
     window.onload = function() {
-        typeWriter();
+        // Check if the device is in portrait mode
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            // In portrait mode, skip the container positioning and only run the typewriter
+            typeWriter();
+        } else {
+            // Not in portrait mode, position the container based on the final size of the text
+            positionContainer();
+            typeWriter();
+        }
     };
-
 </script>
 
 
@@ -246,6 +364,8 @@
         transition: all 0.3s ease;
         color: #fff;
         font-family: 'Courier New', Courier, monospace;
+        width: 92%; /* Set default width */
+        margin: 0 auto; /* Center the box on larger screens */
     }
 
     .research_box:hover {
@@ -258,17 +378,24 @@
     .grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 100%; /* Full width */
         gap: 20px; /* Spacing between boxes */
         margin-top: 20px;
     }
 
-    /* Ensure full width on smaller screens */
-    @media (max-width: 768px) {
+    /* Mobile styles */
+    @media (max-width: 768px) { /* Adjust the max-width as needed for your design */
         .grid-container {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* 1 box per row */
+        }
+
+        .research_box {
+            width: 92%; /* Each box takes 92% of the width */
+            margin: 10px auto; /* Add some margin on top and bottom */
         }
     }
 </style>
+
 
 <div style="padding-left: 5%; padding-right: 5%;">
     <div style="width: 100%; padding: 8px; margin-bottom: 20px; text-align: center; font-size: large;">
@@ -277,10 +404,10 @@
 
     <!-- Grid container for 2x2 layout -->
     <div class="grid-container">
-        <div class="research_box"><strong>🎯 Zero-Shot Generalisation</strong><br>Show a monkey how to stack some bricks, and it’ll ace the job no matter the shape, color, or pose. Teach the same trick to a DL model, and watch it have an aneurism because the colour of the brick changed. Personally, I'm not a fan of drowning models in heaps of training data, so how do we craft <strong>domain-invariant</strong> policies?”
+        <div class="research_box"><strong>🎯 Zero-Shot Generalisation</strong><br>Show a monkey how to stack some bricks, and it’ll ace the job no matter the shape, color, or pose. Teach the same trick to a DL model, and watch it have an aneurism when the colour of the brick changes. Personally, I'm not a fan of drowning models in heaps of training data, so how do we craft <strong>domain-invariant</strong> policies?
             <br><br>
             <a href="https://arxiv.org/abs/2111.09794">Zero-shot Generalisation in DRL Survey</a> - really nice survey on this topic by the lot in DARK labs, UCL.<br>
-            <a href="https://arxiv.org/abs/2107.12808">Open-Ended Learning</a> - I can't tell if I love or hate this paper yet, but I know you have to read it.<br>
+            <a href="https://arxiv.org/abs/2107.12808">Open-Ended Learning</a> - Even if you don't want to read this, at least get lost in the visualisations 🤤.<br>
             <a href="https://ieeexplore.ieee.org/document/9847099?arnumber=9847099">Domain Generalisation Survey</a> - a broader look at the problem of domain invariance.<br>
             <a href="https://arxiv.org/abs/2202.00104">Generalisation in Cooperative MARL</a> - an interesting look into comnbinatorial generalisation.
         </div>
@@ -326,7 +453,7 @@
                 <b style="font-size:x-large">PhD @ UoE
                 </b>
                 <br><i style="font-size:large">Autumn '24 - Present<br></i><br>
-                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a>, <a href="https://david-abel.github.io/">Dave Abel</a>, <a href="https://ignaciocarlucho.github.io/">Ignacio Carlucho</a>, and <a href="https://agents.inf.ed.ac.uk/stefano-albrecht/">Stefano Albrecht</a>. My PhD research focuses on DRL, MARL, zero-shot generalisation, continual learning, and representation learning. </p>
+                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a>, <a href="https://david-abel.github.io/">Dave Abel</a>, <a href="https://ignaciocarlucho.github.io/">Ignacio Carlucho</a>, and <a href="https://agents.inf.ed.ac.uk/stefano-albrecht/">Stefano Albrecht</a>. My PhD research focuses on continual learning within a DRL framework, so I'm mainly dealing with the learning plasticity-memory stability trade-off. I also like to dabble in zero-shot generalisation, representation learning, and information theory.</p>
             </div>
         </div>
     </li>
@@ -340,7 +467,7 @@
                 <b style="font-size:x-large">Senior Research Assistant
                 </b>
                 <br><i style="font-size:large">Spring - Summer '24<br></i><br>
-                <p>Worked on a research project for an industry client, supervised by <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a> and funded by Innovate UK. Built a <a href="https://github.com/ben-sanati/3d-localisation-and-mapping">system</a> that localised and accurately mapped objects within 3D point clouds of large vehicles. This helped automate and speed up the inspection process of vehicles.</p>
+                <p>Worked on a research project for an industry client, supervised by <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a> and funded by Innovate UK. Built a <a href="https://github.com/ben-sanati/3d-localisation-and-mapping">system</a> that localised and mapped objects within 3D point clouds of large vehicles.</p>
             </div>
         </div>
     </li>
@@ -354,7 +481,7 @@
                 <b style="font-size:x-large">Data Science Intern
                 </b>
                 <br><i style="font-size:large">Autumn '23<br></i><br>
-                <p>Landed a Data Science internship at <a href="https://www.cirium.com/">Cirium</a> after a successful AI hackathon. Spent my time working on time-series forecasting and geospatial analysis using spatiotemporal DL techniques. Had a lot of fun with graph neural networks here.</p>
+                <p>Landed a Data Science internship at <a href="https://www.cirium.com/">Cirium</a> after a successful AI hackathon. Spent my time working on time-series forecasting and geospatial analysis using spatiotemporal DL techniques. Had a lot of fun with graph neural networks too.</p>
             </div>
         </div>
     </li>
@@ -382,7 +509,7 @@
                     <b style="font-size:x-large">Master's @ UoS
                     </b>
                     <br><i style="font-size:large">Autumn '19 - Summer '23<br></i><br>
-                    <p>Spent 4 years doing my integrated Master's in Electronic Engineering with Artificial Intelligence at the University of Southampton. I was lucky enough to be supervised by some great people here, including <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a> (Master's project), <a href="https://www.geoffmerrett.co.uk/">Geoff Merrett</a> (3rd year thesis), and <a href="https://scholar.google.com/citations?user=TlRyZNMAAAAJ&hl=en">Lei Xun</a> (3rd year thesis).</p>
+                    <p>Spent 4 years doing my integrated Master's in Electronic Engineering with Artificial Intelligence at the University of Southampton. I was lucky enough to be supervised by some great people, including <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a> (Master's thesis), <a href="https://www.geoffmerrett.co.uk/">Geoff Merrett</a> (3rd year thesis), and <a href="https://scholar.google.com/citations?user=TlRyZNMAAAAJ&hl=en">Lei Xun</a> (3rd year thesis).</p>
                 </div>
             </div>
     </li>

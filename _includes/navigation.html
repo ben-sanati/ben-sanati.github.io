@@ -5,15 +5,20 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            {% if page.url contains 'notes' or page.url contains 'blog' or page.url contains 'pres'%}
-                <a class="navbar-brand page-scroll" href="{{site.url}}" style="font-weight:italic">
-                    Ben Sanati
-                </a>
-            {% else %}
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    Ben Sanati
-                </a>
-            {% endif %}
+            <!-- Brand Name: This will be visible only on desktop -->
+            <a class="navbar-brand page-scroll" href="#page-top" style="font-weight:italic">
+                Ben Sanati
+            </a>
+        </div>
+
+        <div class="navbar-middle">
+            <!-- Social Buttons -->
+            <ul class="list-inline social-buttons-nav navbar-nav navbar-right">
+                <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                <li><a href="{{ site.url }}/assets/cv/cv_temp.pdf">cv</a></li>
+                <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i class="fa fa-linkedin fa-fw"></i></a></li>
+            </ul>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,14 +47,73 @@
 
 
 <style>
-    /* Ben Sanati button */
-    .navbar-custom .navbar-brand {
-        position: absolute;
-        left: 10%;
+    .navbar-custom .navbar-nav {
+        display: flex; /* Ensure the nav is displayed flexibly */
+        justify-content: flex-end; /* Keep buttons on the right */
     }
 
+    /* Ben Sanati */
+    .navbar-custom .navbar-brand {
+        position: absolute;
+        left: 20%;
+    }
+
+    /* Socials buttons */
+    .navbar-custom .navbar-middle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    /* Research & experience buttons */
     .navbar-custom .navbar-nav {
         position: absolute;
-        right: 10%;
+        right: 20%;
+    }
+
+    @media (max-width: 768px) {
+        /* Hide brand name */
+        .navbar-custom .navbar-brand {
+            display: none;
+        }
+
+        /* Move the hamburger menu to the left */
+        .navbar-custom .navbar-header {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Hide the nav links */
+        .navbar-custom .navbar-nav {
+            position: static;
+            display: block;
+            text-align: left;
+        }
+
+        .navbar-custom .navbar-toggle {
+            margin-left: 0;
+        }
+
+        /* Center social buttons */
+        .navbar-custom .navbar-middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Prevent social buttons from wrapping into two lines */
+        .navbar-custom .social-buttons-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1px;  /* Add spacing between icons */
+            width: auto;
+            flex-wrap: nowrap;  /* Prevent wrapping */
+        }
     }
 </style>

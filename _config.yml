@@ -17,3 +17,6 @@ markdown:
 
 highlighter: rouge
 exclude: ["Rakefile", "LICENSE", "readme.md"]
+
+gems:
+   - jekyll-sitemap

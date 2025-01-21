@@ -44,40 +44,29 @@
 }
 
 @media(min-width:768px) {
-    .timeline:before {
-        left:20%;
-    }
-
     .timeline>li {
-        margin-bottom: 25px;
-        min-height: 50px;
+        display: flex;
+        align-items: center; /* Center the contents vertically (optional if you want this) */
+        position: relative; /* Ensure proper positioning context for absolute child elements */
     }
 
-    .timeline>li .timeline-panel {
-        float: left;
-        width: 65%;
-        padding: 0 20px 20px 30px;
-        text-align: right;
-    }
-
+    /* Style the timeline image */
     .timeline>li .timeline-image {
-        left: 20%;
+        left: 18%;
         width: 100px;
         height: 100px;
-        margin-left: -50px;
-    }
-
-    .timeline>li .timeline-image h4 {
-        margin-top: 16px;
-        font-size: 13px;
-        line-height: 18px;
+        border-radius: 50%; /* Make it a circle */
+        text-align: center;
+        color: #fff;
+        background-color: #f1f1f1;
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
         float: left;
+        max-width: 60%;
         padding: 0 30px 20px 20px;
         text-align: left;
-        left: 30%;
-        /* left-margin XXX */
+        left: 25%;
     }
+
 }

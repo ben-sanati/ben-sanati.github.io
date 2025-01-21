@@ -1,5 +1,9 @@
 <h2 style="text-align: center;margin-top: -150px; color: #3498db;"> experience </h2>
 
+<div class="experience_image">
+    <img src="{{ site.baseurl }}/assets/img/work.gif" class="work-image">
+</div>
+
 <ul class="timeline">
     <li class="timeline-inverted">
         <div class="timeline-image">
@@ -10,7 +14,7 @@
                 <b style="font-size:x-large">PhD @ UoE
                 </b>
                 <br><i style="font-size:large">Autumn '24 - Present<br></i><br>
-                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a>, <a href="https://david-abel.github.io/">Dave Abel</a>, <a href="https://ignaciocarlucho.github.io/">Ignacio Carlucho</a>, and <a href="https://agents.inf.ed.ac.uk/stefano-albrecht/">Stefano Albrecht</a>. My PhD research focuses on continual learning within a DRL framework, so I'm mainly dealing with the learning plasticity-memory stability trade-off. I also like to dabble in zero-shot generalisation, representation learning, and information theory.</p>
+                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a> and <a href="https://david-abel.github.io/">David Abel</a>. My PhD research focuses on continual learning, generative modelling and generalisation to OOD tasks, so I'm mainly dealing with the learning plasticity-memory stability trade-off. I also like to dabble in zero-shot generalisation, representation learning, and Bayesian statistical methods.</p>
             </div>
         </div>
     </li>
@@ -72,3 +76,22 @@
     </li>
 
 </ul>
+
+
+<style>
+    /* Center the image */
+    .experience_image {
+        display: flex; /* Use flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically (if parent has a height) */
+        overflow: hidden; /* Prevent any overflow issues */
+        margin-bottom: 30px;
+    }
+
+    /* Make the image full width of the screen */
+    .work-image {
+        height: auto; /* Maintain the aspect ratio */
+        width: 40%; /* Prevent overflow */
+        border-radius: 25px; /* Add rounded corners */
+    }
+</style>

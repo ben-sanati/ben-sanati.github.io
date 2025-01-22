@@ -53,106 +53,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-
-                
-                    <li><a class="page-scroll" href="#research">research</a></li>
-                    <li><a class="page-scroll" href="#experience">experience</a></li>
-                
-
+                <li><a class="page-scroll" href="#research">research</a></li>
+                <li><a class="page-scroll" href="#experience">experience</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-
-
-<style>
-    .navbar-custom .navbar-nav {
-        display: flex; /* Ensure the nav is displayed flexibly */
-        justify-content: flex-end; /* Keep buttons on the right */
-    }
-
-    /* Ben Sanati */
-    .navbar-custom .navbar-brand {
-        position: absolute;
-        left: 20%;
-    }
-/* 
-    /* Socials buttons  */
-    /* .navbar-custom .navbar-middle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-    } */
-
-    .navbar-custom .navbar-middle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Research & experience buttons */
-    .navbar-custom .navbar-nav {
-        position: absolute;
-        right: 20%;
-    }
-
-    @media (max-width: 768px) {
-        /* Hide brand name */
-        .navbar-custom .navbar-brand {
-            display: none;
-        }
-
-        /* Move the hamburger menu to the left */
-        .navbar-custom .navbar-header {
-            display: flex;
-            justify-content: flex-start;
-            width: 100%;
-            position: relative;
-        }
-
-        /* Hide the nav links */
-        .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            text-align: left;
-        }
-
-        .navbar-custom .navbar-toggle {
-            margin-left: 0;
-        }
-
-        /* Center social buttons */
-        .navbar-custom .navbar-middle {
-            position: relative; /* Reset position for smaller screens */
-            left: auto; /* Remove absolute centering */
-            top: auto;
-            transform: none; /* Remove translate effect */
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
-
-        /* Prevent social buttons from wrapping into two lines */
-        .navbar-custom .social-buttons-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1px;  /* Add spacing between icons */
-            width: auto;
-            flex-wrap: nowrap;  /* Prevent wrapping */
-        }
-    }
-</style>
 
     
 <script src="/assets/js/jquery.js"></script> <!-- jQuery -->
@@ -180,9 +88,17 @@
 
     <script src="https://kit.fontawesome.com/ace312f182.js" crossorigin="anonymous"></script>
 
+    <!-- Navigation Styling -->
+    <link href="/assets/css/navigation.css" rel="stylesheet">
+
     <!-- Styling Tables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="/assets/css/lowercase.css" rel="stylesheet">
+
+    <!-- Section Styling -->
+    <link href="/assets/css/about.css" rel="stylesheet">
+    <link href="/assets/css/research.css" rel="stylesheet">
+    <link href="/assets/css/experience.css" rel="stylesheet">
 </head>
 <!-- Intro Header -->
 <header class="intro">
@@ -192,24 +108,16 @@
                 <!-- Left side: Image and Text -->
                 <div class="left-container">
                     <div class="image-container">
-                        <img src="/assets/img/avatar.jpeg"
-                            class="profile-image">
+                        <img src="/assets/img/avatar.jpeg" class="profile-image">
                     </div>
                     <h1 class="intro-text-left">
                         PhD Student<br />University of Edinburgh
                     </h1>
-                    <ul class="list-inline social-buttons"
-                        style="margin-top: 5px;">
-                        <li><a href="mailto:s2719541@ed.ac.uk"><i
-                                    class="fa fa-envelope fa-fw"></i></a></li>
-                        <!-- Uncomment this line when you can be arsed to make the  -->
-                        <!-- <li><a href="http://0.0.0.0:4000/assets/cv/index.html">cv</a></li> -->
-                        <li><a
-                                href="http://0.0.0.0:4000/assets/cv/cv_temp.pdf">cv</a></li>
-                        <li><a href="https://github.com/ben-sanati"><i
-                                    class="fa fa-github fa-fw"></i></a></li>
-                        <li><a
-                                href="https://www.linkedin.com/in/benjamin-sanati/"><i
+                    <ul class="list-inline social-buttons" style="margin-top: 5px;">
+                        <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                        <li><a href="http://0.0.0.0:4000/assets/cv/cv_temp.pdf">cv</a></li>
+                        <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i
                                     class="fa fa-linkedin fa-fw"></i></a></li>
                     </ul>
                 </div>
@@ -224,82 +132,11 @@
     </div>
 </header>
 
-<style>
-    .left-container {
-        display: flex; /* Enable flexbox */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-        flex-direction: column; /* Align items vertically */
-
-        position: absolute; /* Absolute positioning */
-        top: 50%; /* Center vertically */
-        left: calc(50% - 30vw); /* Position to the left of the central image */
-        transform: translateY(-50%); /* Center vertically */
-        width: 15vw; /* Adjust width as needed */
-        z-index: 2; /* Sit above the background */
-    }
-
-    .right-container {
-        display: flex;
-        justify-content: flex-start; /* Align items to the top */
-        flex-direction: column; /* Align content vertically */
-        
-        position: absolute; /* Absolute positioning */
-        left: calc(50% + 15vw); /* Position to the right of the central image */
-        width: 30vw; /* Adjust width as needed */
-        z-index: 2; /* Sit above the background */
-    }
-    
-    .profile-image {
-        align-items: center; /* Center items vertically, if necessary */
-        width: 80%; /* Scales image size */
-        max-width: 200px; /* Limit image size on larger screens */
-        border-radius: 20%; /* Round image */
-        margin-bottom: 20px; /* Add spacing below the image */
-    }
-    
-    .intro-text-right {
-        font-size: 1.6rem; /* Adjust font size */
-        margin-top: 10px;
-    }
-    
-    .intro-text-left {
-        text-transform: none; /* This ensures the text remains case-sensitive */
-        text-align: center; /* Center the text horizontally if needed */
-        font-size: 1.2em;
-        margin-top: 5px; /* Reduced vertical space between heading and text */
-        margin-bottom: 5px; /* Reduced space below the heading */
-        text-transform: none; /* This ensures the text remains case-sensitive */
-    }
-
-    /* Work for phones */
-    @media (max-width: 768px) {
-        /* Hide the left container on mobile */
-        .left-container {
-            display: none; /* Hide the left container */
-        }
-
-        /* Position the right container all the way to the left */
-        .right-container {
-            position: absolute;
-            text-transform: none; /* This ensures the text remains case-sensitive */
-            text-align: center; /* Center the text horizontally if needed */
-            top: 10vw; /* Keep it positioned 10% down the screen */
-            width: 100%; /* Adjust width as needed */
-            left: 0vw; /* Keep it positioned right from the left edge */
-        }
-
-        .intro-text-right {
-            color: #ffffff;
-        }
-    }
-</style>
-
 <!-- Typwriting js code -->
 <script>
     // Full text to display in the typewriter
-    const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
-    
+    const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Continual Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
+
     let index = 0; // Start at the first character
     const speed = 5; // Typewriter speed in milliseconds
 
@@ -309,10 +146,10 @@
 
         // Temporarily apply full text to measure height
         typewriterText.innerHTML = fullText.replace(/\n/g, "<br>"); // Replace newlines with <br> tags for measurement
-        
+
         // Measure the height after adding the full text
         const finalHeight = document.querySelector('.right-container').scrollHeight;
-        
+
         // Reset the innerHTML (clear it)
         typewriterText.innerHTML = '';
 
@@ -322,14 +159,14 @@
     // Function to adjust the top position of the right container based on its final height
     function positionContainer() {
         const rightContainer = document.querySelector('.right-container');
-        
+
         // Get the final estimated height
         const finalHeight = calculateFinalContainerHeight();
-        
+
         // Calculate the top position so the center of the container is 50% of the screen height
         const halfWindowHeight = window.innerHeight / 2;
         const topPosition = halfWindowHeight - (finalHeight / 2);
-        
+
         // Apply the calculated top position
         rightContainer.style.top = `${topPosition}px`;
     }
@@ -337,10 +174,10 @@
     // Function to typewrite text character by character
     function typeWriter() {
         const typewriterText = document.getElementById("typewriter-text");
-        
+
         // Determine the effective text to type in portrait mode
         const effectiveText = window.matchMedia("(orientation: portrait)").matches
-            ? fullText.split("\n")[0] // Only take the first line if in portrait mode
+            ? fullText  // .split("\n")[0] // Only take the first line if in portrait mode
             : fullText; // Use the full text otherwise
 
         // Check if the text is fully displayed
@@ -353,10 +190,11 @@
     }
 
     // Start the positioning and typewriting effect once the page loads
-    window.onload = function() {
+    window.onload = function () {
         // Check if the device is in portrait mode
         if (window.matchMedia("(orientation: portrait)").matches) {
             // In portrait mode, skip the container positioning and only run the typewriter
+            positionContainer();
             typeWriter();
         } else {
             // Not in portrait mode, position the container based on the final size of the text
@@ -417,64 +255,6 @@
     </div>
 </div>
 
-<style>
-    .research_box {
-        padding: 15px;
-        background-color: #1a1a1a;
-        border: 2px solid #5c00dd;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-        color: #fff;
-        font-family: 'Courier New', Courier, monospace;
-        width: 92%; /* Set default width */
-        margin: 0 auto; /* Center the box on larger screens */
-    }
-
-    .research_box:hover {
-        border-color: #3498db;
-        background-color: #262626;
-        transform: scale(1.02);
-    }
-
-    /* Grid container for 2x2 layout */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%; /* Full width */
-        gap: 20px; /* Spacing between boxes */
-        margin-top: 20px;
-    }
-
-    /* Center the image */
-    .research_image {
-        display: flex; /* Use flexbox for centering */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically (if parent has a height) */
-        height: 100%; /* Ensure the parent div takes up enough space for centering */
-        overflow: hidden; /* Prevent any overflow issues */
-    }
-
-    /* Make the image full width of the screen */
-    .research_image .profile-image {
-        width: 100vw; /* Set the width to 100% of the viewport */
-        height: auto; /* Maintain the aspect ratio */
-        max-width: 55%; /* Prevent overflow */
-        border-radius: 25px; /* Add rounded corners */
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) { /* Adjust the max-width as needed for your design */
-        .grid-container {
-            grid-template-columns: 1fr; /* 1 box per row */
-        }
-
-        .research_box {
-            width: 92%; /* Each box takes 92% of the width */
-            margin: 10px auto; /* Add some margin on top and bottom */
-        }
-    }
-</style>
-
         </div>
     </section>
 
@@ -496,7 +276,7 @@
                 <b style="font-size:x-large">PhD @ UoE
                 </b>
                 <br><i style="font-size:large">Autumn '24 - Present<br></i><br>
-                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a> and <a href="https://david-abel.github.io/">David Abel</a>. My PhD research focuses on continual learning, generative modelling and generalisation to OOD tasks, so I'm mainly dealing with the learning plasticity-memory stability trade-off. I also like to dabble in zero-shot generalisation, representation learning, and Bayesian statistical methods.</p>
+                <p>Supervised by <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a> and <a href="https://david-abel.github.io/">David Abel</a>. My PhD research focuses on continual learning, generative modelling and generalisation to OOD tasks. I spend a lot of time tackling the learning plasticity-memory stability dilemma, however, I also like to dabble in zero-shot generalisation, representation learning, and Bayesian statistical modelling.</p>
             </div>
         </div>
     </li>
@@ -558,25 +338,6 @@
     </li>
 
 </ul>
-
-
-<style>
-    /* Center the image */
-    .experience_image {
-        display: flex; /* Use flexbox for centering */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically (if parent has a height) */
-        overflow: hidden; /* Prevent any overflow issues */
-        margin-bottom: 30px;
-    }
-
-    /* Make the image full width of the screen */
-    .work-image {
-        height: auto; /* Maintain the aspect ratio */
-        width: 40%; /* Prevent overflow */
-        border-radius: 25px; /* Add rounded corners */
-    }
-</style>
 
         </div>
     </section>

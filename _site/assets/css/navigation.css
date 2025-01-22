@@ -1,0 +1,68 @@
+.navbar-custom .navbar-nav {
+  display: flex; /* Ensure the nav is displayed flexibly */
+  justify-content: flex-end; /* Keep buttons on the right */
+}
+
+.navbar-custom .navbar-middle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  /* Hide brand name */
+  .navbar-custom .navbar-brand {
+    display: none;
+  }
+
+  /* Ensure collapsible menu spans full height */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%; /* Menu width */
+    height: 100%; /* Full height */
+    z-index: 1050;
+    overflow-y: auto; /* Scrollable if content overflows */
+    transition: transform 0.3s ease-in-out;
+    padding-top: 30px; /* Pad so home doesnt cover menu button */
+  }
+
+  /* Show collapsible menu when toggled */
+  .navbar-collapse.show {
+      transform: translateX(0);
+  }
+
+  /* Align nav items vertically */
+  .navbar-collapse .nav {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the left */
+  }
+
+  /* Hamburger menu aligned to the left */
+  .navbar-custom .navbar-header {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+  }
+
+  /* Ensure list items take full width */
+  .navbar-collapse .nav li {
+      width: 100%;
+      margin: 0;
+  }
+
+  .navbar-collapse .nav li a {
+    width: 100%; /* Full width clickable area */
+    padding: 5px 15px; /* Reduced padding for smaller row thickness */
+    font-size: 14px; /* Optional: Reduce font size if needed */
+  }
+
+  .navbar-toggle {
+      z-index: 1060; /* Ensure toggle button is above navbar */
+  }
+}

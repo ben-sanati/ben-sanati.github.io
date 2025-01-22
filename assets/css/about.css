@@ -1,0 +1,112 @@
+.left-container {
+  display: flex;
+  /* Enable flexbox */
+  justify-content: center;
+  /* Center items horizontally */
+  align-items: center;
+  /* Center items vertically */
+  flex-direction: column;
+  /* Align items vertically */
+
+  position: absolute;
+  /* Absolute positioning */
+  top: 50%;
+  /* Center vertically */
+  left: calc(50% - 30vw);
+  /* Position to the left of the central image */
+  transform: translateY(-50%);
+  /* Center vertically */
+  width: 15vw;
+  /* Adjust width as needed */
+  z-index: 2;
+  /* Sit above the background */
+}
+
+.right-container {
+  display: flex;
+  justify-content: flex-start;
+  /* Align items to the top */
+  flex-direction: column;
+  /* Align content vertically */
+
+  position: absolute;
+  /* Absolute positioning */
+  left: calc(50% + 15vw);
+  /* Position to the right of the central image */
+  width: 30vw;
+  /* Adjust width as needed */
+  z-index: 2;
+  /* Sit above the background */
+}
+
+.profile-image {
+  align-items: center;
+  /* Center items vertically, if necessary */
+  width: 80%;
+  /* Scales image size */
+  max-width: 200px;
+  /* Limit image size on larger screens */
+  border-radius: 20%;
+  /* Round image */
+  margin-bottom: 20px;
+  /* Add spacing below the image */
+}
+
+.intro-text-right {
+  font-size: 1.6rem;
+  /* Adjust font size */
+  margin-top: 10px;
+}
+
+.intro-text-left {
+  text-transform: none;
+  /* This ensures the text remains case-sensitive */
+  text-align: center;
+  /* Center the text horizontally if needed */
+  font-size: 1.2em;
+  margin-top: 5px;
+  /* Reduced vertical space between heading and text */
+  margin-bottom: 5px;
+  /* Reduced space below the heading */
+  text-transform: none;
+  /* This ensures the text remains case-sensitive */
+}
+
+/* Work for phones */
+@media (max-width: 768px) {
+  /* Hide the left container on mobile */
+  .left-container {
+    display: none;
+    /* Hide the left container */
+  }
+
+  .right-container {
+    position: absolute; /* Absolute positioning */
+    text-align: center;
+    top: 30vw;
+    width: 100%;
+    height: 100%;
+    left: 0vw;
+  }
+  
+  /* Position the h2 at 40% from the top */
+  .right-container h2.intro-text-right {
+    position: absolute; /* Absolute positioning for precise placement */
+    text-align: center; /* Center the text */
+    top: 25%; /* 30% from the top of the viewport */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 2rem; /* Adjust font size as needed */
+  }
+  
+  /* Position the paragraph at 70% from the top */
+  .right-container p.intro-text-right {
+    position: absolute; /* Absolute positioning for precise placement */
+    text-align: center; /* Center the text */
+    top: 80%; /* 70% from the top */
+    left: 0; /* Align to the left within the container */
+    transform: translateY(-50%); /* Optional: center text vertically */
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem;
+  }
+}

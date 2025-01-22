@@ -1,0 +1,60 @@
+.research_box {
+  padding: 15px;
+  background-color: #1a1a1a;
+  border: 2px solid #5c00dd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  width: 92%; /* Set default width */
+  margin: 0 auto; /* Center the box on larger screens */
+}
+
+.research_box:hover {
+  border-color: #3498db;
+  background-color: #262626;
+  transform: scale(1.02);
+}
+
+/* Grid container for 2x2 layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%; /* Full width */
+  gap: 20px; /* Spacing between boxes */
+  margin-top: 20px;
+}
+
+/* Center the image */
+.research_image {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically (if parent has a height) */
+  height: 100%; /* Ensure the parent div takes up enough space for centering */
+  overflow: hidden; /* Prevent any overflow issues */
+}
+
+/* Make the image full width of the screen */
+.research_image .profile-image {
+  width: 100vw; /* Set the width to 100% of the viewport */
+  height: auto; /* Maintain the aspect ratio */
+  max-width: 55%; /* Prevent overflow */
+  border-radius: 25px; /* Add rounded corners */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  /* Adjust the max-width as needed for your design */
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 box per row */
+  }
+
+  .research_box {
+    width: 100%; /* Each box takes 92% of the width */
+    margin: 10px auto; /* Add some margin on top and bottom */
+  }
+
+  .research_image .profile-image {
+    max-width: 100%; /* Full width image */
+  }
+}

@@ -24,107 +24,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-
-                {% if page.url contains 'notes' or page.url contains 'projects' or page.url contains 'blog' or page.url contains 'ovw' or page.url contains 'pres'%}
-                    <li><a class="page-scroll" href="{{site.baseurl}}/#research">research</a></li>
-                    <li><a class="page-scroll" href="{{site.baseurl}}/#experience">experience</a></li>
-
-                {% else %}
-                    <li><a class="page-scroll" href="#research">research</a></li>
-                    <li><a class="page-scroll" href="#experience">experience</a></li>
-                {% endif %}
-
+                <li><a class="page-scroll" href="#research">research</a></li>
+                <li><a class="page-scroll" href="#experience">experience</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-
-
-<style>
-    .navbar-custom .navbar-nav {
-        display: flex; /* Ensure the nav is displayed flexibly */
-        justify-content: flex-end; /* Keep buttons on the right */
-    }
-
-    /* Ben Sanati */
-    .navbar-custom .navbar-brand {
-        position: absolute;
-        left: 20%;
-    }
-/* 
-    /* Socials buttons  */
-    /* .navbar-custom .navbar-middle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-    } */
-
-    .navbar-custom .navbar-middle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Research & experience buttons */
-    .navbar-custom .navbar-nav {
-        position: absolute;
-        right: 20%;
-    }
-
-    @media (max-width: 768px) {
-        /* Hide brand name */
-        .navbar-custom .navbar-brand {
-            display: none;
-        }
-
-        /* Move the hamburger menu to the left */
-        .navbar-custom .navbar-header {
-            display: flex;
-            justify-content: flex-start;
-            width: 100%;
-            position: relative;
-        }
-
-        /* Hide the nav links */
-        .navbar-custom .navbar-nav {
-            position: static;
-            display: block;
-            text-align: left;
-        }
-
-        .navbar-custom .navbar-toggle {
-            margin-left: 0;
-        }
-
-        /* Center social buttons */
-        .navbar-custom .navbar-middle {
-            position: relative; /* Reset position for smaller screens */
-            left: auto; /* Remove absolute centering */
-            top: auto;
-            transform: none; /* Remove translate effect */
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
-
-        /* Prevent social buttons from wrapping into two lines */
-        .navbar-custom .social-buttons-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1px;  /* Add spacing between icons */
-            width: auto;
-            flex-wrap: nowrap;  /* Prevent wrapping */
-        }
-    }
-</style>

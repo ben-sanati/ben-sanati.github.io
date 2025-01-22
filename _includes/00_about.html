@@ -6,24 +6,16 @@
                 <!-- Left side: Image and Text -->
                 <div class="left-container">
                     <div class="image-container">
-                        <img src="{{ site.baseurl }}/assets/img/avatar.jpeg"
-                            class="profile-image">
+                        <img src="{{ site.baseurl }}/assets/img/avatar.jpeg" class="profile-image">
                     </div>
                     <h1 class="intro-text-left">
                         PhD Student<br />University of Edinburgh
                     </h1>
-                    <ul class="list-inline social-buttons"
-                        style="margin-top: 5px;">
-                        <li><a href="mailto:s2719541@ed.ac.uk"><i
-                                    class="fa fa-envelope fa-fw"></i></a></li>
-                        <!-- Uncomment this line when you can be arsed to make the  -->
-                        <!-- <li><a href="{{ site.url }}/assets/cv/index.html">cv</a></li> -->
-                        <li><a
-                                href="{{ site.url }}/assets/cv/cv_temp.pdf">cv</a></li>
-                        <li><a href="https://github.com/ben-sanati"><i
-                                    class="fa fa-github fa-fw"></i></a></li>
-                        <li><a
-                                href="https://www.linkedin.com/in/benjamin-sanati/"><i
+                    <ul class="list-inline social-buttons" style="margin-top: 5px;">
+                        <li><a href="mailto:s2719541@ed.ac.uk"><i class="fa fa-envelope fa-fw"></i></a></li>
+                        <li><a href="{{ site.url }}/assets/cv/cv_temp.pdf">cv</a></li>
+                        <li><a href="https://github.com/ben-sanati"><i class="fa fa-github fa-fw"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/benjamin-sanati/"><i
                                     class="fa fa-linkedin fa-fw"></i></a></li>
                     </ul>
                 </div>
@@ -38,82 +30,11 @@
     </div>
 </header>
 
-<style>
-    .left-container {
-        display: flex; /* Enable flexbox */
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-        flex-direction: column; /* Align items vertically */
-
-        position: absolute; /* Absolute positioning */
-        top: 50%; /* Center vertically */
-        left: calc(50% - 30vw); /* Position to the left of the central image */
-        transform: translateY(-50%); /* Center vertically */
-        width: 15vw; /* Adjust width as needed */
-        z-index: 2; /* Sit above the background */
-    }
-
-    .right-container {
-        display: flex;
-        justify-content: flex-start; /* Align items to the top */
-        flex-direction: column; /* Align content vertically */
-        
-        position: absolute; /* Absolute positioning */
-        left: calc(50% + 15vw); /* Position to the right of the central image */
-        width: 30vw; /* Adjust width as needed */
-        z-index: 2; /* Sit above the background */
-    }
-    
-    .profile-image {
-        align-items: center; /* Center items vertically, if necessary */
-        width: 80%; /* Scales image size */
-        max-width: 200px; /* Limit image size on larger screens */
-        border-radius: 20%; /* Round image */
-        margin-bottom: 20px; /* Add spacing below the image */
-    }
-    
-    .intro-text-right {
-        font-size: 1.6rem; /* Adjust font size */
-        margin-top: 10px;
-    }
-    
-    .intro-text-left {
-        text-transform: none; /* This ensures the text remains case-sensitive */
-        text-align: center; /* Center the text horizontally if needed */
-        font-size: 1.2em;
-        margin-top: 5px; /* Reduced vertical space between heading and text */
-        margin-bottom: 5px; /* Reduced space below the heading */
-        text-transform: none; /* This ensures the text remains case-sensitive */
-    }
-
-    /* Work for phones */
-    @media (max-width: 768px) {
-        /* Hide the left container on mobile */
-        .left-container {
-            display: none; /* Hide the left container */
-        }
-
-        /* Position the right container all the way to the left */
-        .right-container {
-            position: absolute;
-            text-transform: none; /* This ensures the text remains case-sensitive */
-            text-align: center; /* Center the text horizontally if needed */
-            top: 10vw; /* Keep it positioned 10% down the screen */
-            width: 100%; /* Adjust width as needed */
-            left: 0vw; /* Keep it positioned right from the left edge */
-        }
-
-        .intro-text-right {
-            color: #ffffff;
-        }
-    }
-</style>
-
 <!-- Typwriting js code -->
 <script>
     // Full text to display in the typewriter
-    const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Single/Multi-Agent Deep Reinforcement Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
-    
+    const fullText = "I'm doing a PhD in ML Systems @ UoE. I'm into all things ML, but my research focuses on Continual Learning.\n\nIn particular, I'm interested in creating more robust algorithms, so most of my work is in zero-shot generalisation, continual learning, and open-ended learning.";
+
     let index = 0; // Start at the first character
     const speed = 5; // Typewriter speed in milliseconds
 
@@ -123,10 +44,10 @@
 
         // Temporarily apply full text to measure height
         typewriterText.innerHTML = fullText.replace(/\n/g, "<br>"); // Replace newlines with <br> tags for measurement
-        
+
         // Measure the height after adding the full text
         const finalHeight = document.querySelector('.right-container').scrollHeight;
-        
+
         // Reset the innerHTML (clear it)
         typewriterText.innerHTML = '';
 
@@ -136,14 +57,14 @@
     // Function to adjust the top position of the right container based on its final height
     function positionContainer() {
         const rightContainer = document.querySelector('.right-container');
-        
+
         // Get the final estimated height
         const finalHeight = calculateFinalContainerHeight();
-        
+
         // Calculate the top position so the center of the container is 50% of the screen height
         const halfWindowHeight = window.innerHeight / 2;
         const topPosition = halfWindowHeight - (finalHeight / 2);
-        
+
         // Apply the calculated top position
         rightContainer.style.top = `${topPosition}px`;
     }
@@ -151,10 +72,10 @@
     // Function to typewrite text character by character
     function typeWriter() {
         const typewriterText = document.getElementById("typewriter-text");
-        
+
         // Determine the effective text to type in portrait mode
         const effectiveText = window.matchMedia("(orientation: portrait)").matches
-            ? fullText.split("\n")[0] // Only take the first line if in portrait mode
+            ? fullText  // .split("\n")[0] // Only take the first line if in portrait mode
             : fullText; // Use the full text otherwise
 
         // Check if the text is fully displayed
@@ -167,10 +88,11 @@
     }
 
     // Start the positioning and typewriting effect once the page loads
-    window.onload = function() {
+    window.onload = function () {
         // Check if the device is in portrait mode
         if (window.matchMedia("(orientation: portrait)").matches) {
             // In portrait mode, skip the container positioning and only run the typewriter
+            positionContainer();
             typeWriter();
         } else {
             // Not in portrait mode, position the container based on the final size of the text

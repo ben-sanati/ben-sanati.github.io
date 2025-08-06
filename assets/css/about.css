@@ -46,7 +46,7 @@
   /* Scales image size */
   max-width: 200px;
   /* Limit image size on larger screens */
-  border-radius: 20%;
+  border-radius: 5%;
   /* Round image */
   margin-bottom: 20px;
   /* Add spacing below the image */

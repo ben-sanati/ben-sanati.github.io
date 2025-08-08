@@ -1,4 +1,239 @@
----
-layout: main
-title: Ben Sanati
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ben Sanati | Machine Learning Researcher</title>
+    <meta
+      name="description"
+      content="Hey, I'm Ben. My research focuses on continual learning, open-ended learning, and stochastic processes."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="background-canvas" aria-hidden="true"></canvas>
+
+    <header id="header">
+      <nav class="nav-container" role="navigation" aria-label="Main navigation">
+        <div class="logo" aria-label="Ben Sanati homepage">🌐</div>
+        <ul class="nav-links">
+          <li><a href="#research">Research</a></li>
+          <!-- <li><a href="#publications">Publications</a></li> -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li>
+            <button
+              id="theme-toggle"
+              aria-label="Toggle Light and Dark Mode"
+              title="Toggle Light/Dark Theme"
+            >
+              <span class="icon-sun" hidden>☀️</span>
+              <span class="icon-moon" hidden>🌙</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero" tabindex="-1">
+        <div class="hero-content">
+          <h1>Ben Sanati</h1>
+          <h2>PhD Student in ML</h2>
+          <p>
+            Hey, I'm Ben. My research focuses on Continual Learning, Open-Endedness, and Stochastic Differential Systems.
+          </p>
+
+          <!-- Logos Section inserted here -->
+          <div class="logos-container" aria-label="Affiliated logos">
+            <a
+              href="https://www.linkedin.com/in/benjamin-sanati/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn Logo"
+            >
+              <img
+                src="assets/imgs/LI-In-Bug.png"
+                alt="LinkedIn Logo"
+                class="logo-light"
+              />
+              <img
+                src="assets/imgs/InBug-White.png"
+                alt="LinkedIn Logo"
+                class="logo-dark"
+              />
+            </a>
+            <a
+              href="https://github.com/ben-sanati"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub Logo"
+            >
+              <img
+                src="assets/imgs/github-mark.png"
+                alt="GitHub Logo"
+                class="logo-light"
+              />
+              <img
+                src="assets/imgs/github-mark-white.png"
+                alt="GitHub Logo"
+                class="logo-dark"
+              />
+            </a>
+            <a
+              href="mailto:b.sanati@ed.ac.uk"
+              target="_blank"
+              rel="noopener"
+              aria-label="Email Logo"
+            >
+              <img
+                src="assets/imgs/gmail.png"
+                alt="Email Logo"
+                class="logo-light"
+              />
+              <img
+                src="assets/imgs/gmail.png"
+                alt="Email Logo"
+                class="logo-dark"
+              />
+            </a>
+            <a
+              href="assets/cv.pdf"
+              target="_blank"
+              rel="noopener"
+              aria-label="CV Logo"
+            >
+              <img
+                src="assets/imgs/cv-light.png"
+                alt="CV Logo"
+                class="logo-light"
+              />
+              <img
+                src="assets/imgs/cv-light.png"
+                alt="CV Logo"
+                class="logo-dark"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="hero-photo" aria-hidden="true">
+          <img
+            src="assets/imgs/mario.gif"
+            alt="Avatar of Ben Sanati"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section id="research" class="section research" tabindex="-1">
+        <h2>Research Focus</h2>
+        <div class="cards-grid">
+          <article class="card" tabindex="0">
+            <h3>Continual Learning &<br>Open-Endedness</h3>
+            <p>
+              Developing algorithms that adapt and evolve over time.
+            </p>
+          </article>
+          <article class="card" tabindex="0">
+            <h3>Stochastic Differential Systems</h3>
+            <p>
+              ML approaches that use stochastic differential equations.
+            </p>
+          </article>
+          <article class="card" tabindex="0">
+            <h3>Foundations of Machine Learning</h3>
+            <p>
+              Understanding the theoretical underpinnings of learning.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- <section id="publications" class="section publications" tabindex="-1">
+        <h2>Publications</h2>
+        <input
+          type="search"
+          id="pub-search"
+          placeholder="Search publications..."
+          aria-label="Search publications"
+          autocomplete="off"
+        />
+        <div
+          id="pub-list"
+          class="pub-list"
+          aria-live="polite"
+          aria-atomic="true"
+          role="list"
+        ></div>
+      </section> -->
+
+      <section class="experience" id="experience" tabindex="-1">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="entry">
+          <h3>PhD Student</h3>
+          <span>Autumn '24 – Present | University of Edinburgh</span>
+          <p>
+            Supervised by
+            <a href="https://homepages.inf.ed.ac.uk/amos/">Amos Storkey</a> and <a href="https://david-abel.github.io/">David Abel</a>.
+          </p>
+        </div>
+
+        <div class="entry">
+          <h3>Senior Research Assistant</h3>
+          <span>Spring - Summer '24 | University of Southampton</span>
+          <p>
+            Supervised by
+            <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a> and funded by <a href="https://www.ukri.org/councils/innovate-uk/">Innovate UK</a>.
+          </p>
+        </div>
+
+        <div class="entry">
+          <h3>Data Science Intern</h3>
+          <span>Autumn '23 | <a href="https://www.cirium.com/">Cirium</a></span>
+          <p>
+            Internship won through a hackathon.
+          </p>
+        </div>
+
+        <div class="entry">
+          <h3>Undergraduate Research Scholar</h3>
+          <span>Summer '22 | University of Southampton</span>
+          <p>
+            Scholarship awarded to perform research in computer vision.
+          </p>
+        </div>
+
+        <div class="entry">
+          <h3>Master's of Engineering</h3>
+          <span>Autumn '19 - Summer '23 | University of Southampton</span>
+          <p>
+            MEng in Electronic Engineering with Artificial Intelligence, during which I was supervised by
+            <a href="https://www.southampton.ac.uk/~jsh2/">Jonathon Hare</a>, <a href="https://www.geoffmerrett.co.uk/">Geoff Merrett</a>, and <a href="https://scholar.google.com/citations?user=TlRyZNMAAAAJ&hl=en">Lei Xun</a>.
+          </p>
+        </div>
+
+      <div
+        id="pub-modal"
+        class="modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-content">
+          <button id="modal-close" aria-label="Close modal">×</button>
+          <h3 id="modal-title"></h3>
+          <p id="modal-authors"></p>
+          <p id="modal-abstract"></p>
+          <a id="modal-pdf" href="#" target="_blank" class="btn">Read PDF</a>
+        </div>
+      </div>
+    </main>
+      <footer>
+        <p>© 2025 Ben Sanati.</p>
+      </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -9,8 +9,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   font-size: 16px;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -101,7 +101,11 @@ header {
   font-weight: 900;
   font-size: 1.5rem;
   letter-spacing: 0.05em;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
@@ -172,7 +176,11 @@ header {
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 0.3rem;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -250,7 +258,6 @@ body:not(.light) .logo-dark {
   outline-offset: 3px;
 }
 
-
 /* Sections */
 .section {
   max-width: 1080px;
@@ -262,7 +269,11 @@ body:not(.light) .logo-dark {
   font-weight: 900;
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -270,7 +281,7 @@ body:not(.light) .logo-dark {
 /* Research Cards Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -397,7 +408,11 @@ body:not(.light) .logo-dark {
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -410,7 +425,11 @@ body:not(.light) .logo-dark {
 .modal-content a.btn {
   margin-top: 1.5rem;
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
   color: #fff;
   padding: 0.8rem 2rem;
   font-weight: 700;
@@ -421,7 +440,11 @@ body:not(.light) .logo-dark {
 
 .modal-content a.btn:hover,
 .modal-content a.btn:focus-visible {
-  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+  background: linear-gradient(
+    135deg,
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
   outline-offset: 3px;
 }
 
@@ -548,3 +571,115 @@ input:focus-visible,
   outline-offset: 3px;
   outline-style: solid;
 }
+
+/* Tablets: max-width 768px */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    text-align: center;
+    padding: 0.5rem 1rem; /* much less top & bottom padding */
+    max-width: 100vw; /* prevent horizontal overflow */
+    margin: 0 auto 0rem auto; /* less bottom margin */
+    gap: 1rem; /* less gap between items */
+  }
+
+  .hero-content {
+    width: 100%;
+    flex : 1 1 auto; /* allow content to grow */
+  }
+
+  .hero h1 {
+    margin-top: 0; /* Remove default top margin */
+    padding-top: 0; /* Remove any padding if present */
+  }
+
+  .hero p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-bottom: 0.25rem; /* small gap below content */
+  }
+
+  .hero p {
+    margin-bottom: 0.5rem; /* reduce paragraph bottom margin */
+  }
+
+  .hero-photo {
+    width: 100%;
+    max-width: 650px;
+    margin: 0.5rem auto 0.5rem auto; /* tighter vertical margin */
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px var(--shadow-primary);
+  }
+}
+
+/* Phones: max-width 480px */
+@media (max-width: 480px) {
+  /* Further stack hero */
+  .hero {
+    gap: 1rem;
+    margin: 2rem 1rem 4rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-photo img {
+    max-width: 90vw;
+    box-shadow: 0 4px 14px var(--shadow-primary);
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .nav-links button#theme-toggle {
+    font-size: 1.6rem;
+  }
+
+  /* Cards become single column */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Experience container shrinks padding, entries font smaller */
+  .experience {
+    margin: 2rem 1rem 4rem 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .entry h3 {
+    font-size: 1rem;
+  }
+
+  .entry p {
+    font-size: 0.95rem;
+  }
+
+  /* Footer padding tighter */
+  footer {
+    padding: 1.5rem 1rem;
+  }
+}
+

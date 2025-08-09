@@ -112,6 +112,10 @@ header {
   cursor: default;
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 .nav-links {
   list-style: none;
   display: flex;

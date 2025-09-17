@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update theme icons visibility
   function updateThemeIcons() {
     const isLight = body.classList.contains("light");
-    iconSun.hidden = !isLight;
-    iconMoon.hidden = isLight;
+    iconSun.hidden = isLight;
+    iconMoon.hidden = !isLight;
   }
 
   // Toggle light/dark theme and save preference

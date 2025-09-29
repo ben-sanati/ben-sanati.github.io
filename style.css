@@ -478,7 +478,16 @@ body:not(.light) .logo-dark {
   color: var(--accent-primary);
   margin-bottom: 1.25rem;
   padding-bottom: 0.3rem;
-  max-width: max-content;
+  /* max-width: max-content; */
+  text-align: center;
+}
+
+.research {
+  max-width: 1080px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+  background: var(--card-bg);
+  text-align: center;
 }
 
 .experience {

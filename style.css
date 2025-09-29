@@ -477,7 +477,6 @@ body:not(.light) .logo-dark {
   font-weight: 700;
   color: var(--accent-primary);
   margin-bottom: 1.25rem;
-  border-bottom: 3px solid var(--accent-primary);
   padding-bottom: 0.3rem;
   max-width: max-content;
 }

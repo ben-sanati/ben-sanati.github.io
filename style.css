@@ -23,6 +23,12 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
 /* CSS Variables for Light/Dark */
 :root {
   --bg-color: #0f1724;

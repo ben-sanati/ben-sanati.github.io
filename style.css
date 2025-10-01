@@ -133,6 +133,7 @@ header {
   font-weight: 600;
   font-size: 1rem;
   transition: color 0.25s ease;
+  text-decoration: none;
 }
 
 .nav-links a:hover,
@@ -665,6 +666,7 @@ input:focus-visible,
 
   .nav-links a {
     font-size: 1.1rem;
+    text-decoration: none;
   }
 
   .nav-links button#theme-toggle {

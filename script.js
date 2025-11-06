@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const iconMoon = themeToggleBtn.querySelector(".icon-moon");
   const body = document.body;
 
-  const pubSearchInput = document.getElementById("pub-search");
   const pubList = document.getElementById("pub-list");
 
   const pubModal = document.getElementById("pub-modal");
@@ -18,28 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCloseBtn = document.getElementById("modal-close");
 
   // Sample publications data (replace or load dynamically)
-//   const publications = [
-//     {
-//       title: "Continual Learning with Stochastic Processes",
-//       authors: "Ben Sanati, A. Researcher",
-//       abstract: "Explores continual learning through novel stochastic methods.",
-//       pdf: "assets/papers/continual_learning.pdf",
-//     },
-//     {
-//       title: "Robust Neural Networks",
-//       authors: "Ben Sanati, B. Scientist",
-//       abstract:
-//         "Techniques to improve robustness of neural nets against attacks.",
-//       pdf: "assets/papers/robust_nn.pdf",
-//     },
-//     {
-//       title: "Human-in-the-Loop AI Systems",
-//       authors: "Ben Sanati, C. Developer",
-//       abstract: "Integrating human feedback into AI training pipelines.",
-//       pdf: "assets/papers/human_loop_ai.pdf",
-//     },
-//     // Add more here...
-//   ];
+  const publications = [
+    {
+      title: "Forgetting is Everywhere",
+      authors: "<strong>Ben Sanati</strong>, Thomas L. Lee, Trevor McInroe, Aidan Scannell,<br>Nikolay Malkin, David Abel, Amos Storkey",
+      abstract:
+        "A fundamental challenge in developing general learning algorithms is their tendency to forget past knowledge when adapting to new data. Addressing this problem requires a principled understanding of forgetting; yet, despite decades of study, no unified definition has emerged that provides insights into the underlying dynamics of learning. We propose an algorithm- and task-agnostic theory that characterises forgetting as a lack of self-consistency in a learner's predictive distribution over future experiences, manifesting as a loss of predictive information. Our theory naturally yields a general measure of an algorithm's propensity to forget. To validate the theory, we design a comprehensive set of experiments that span classification, regression, generative modelling, and reinforcement learning.We empirically demonstrate how forgetting is present across all learning settings and plays a significant role in determining learning efficiency. Together, these results establish a principled understanding of forgetting and lay the foundation for analysing and improving the information retention capabilities of general learning algorithms.",
+      pitch: "Forgetting is a fundamental challenge in machine learning, yet it is poorly understood. In this paper, we propose a principled theory of forgetting and ask: What is forgetting, why does it occur, and how does it impact learning?",
+      arxiv: "https://arxiv.org/abs/1234.5678",
+      image: "assets/pub_imgs/absorption_loss_dark.png",
+    },
+  ];
 
   // Initialize theme from localStorage or system preference
   function initTheme() {
@@ -115,12 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    filteredPubs.forEach((pub, i) => {
+    filteredPubs.forEach((pub) => {
       const item = document.createElement("div");
-      item.className = "pub-item";
+      item.className = "pub-card";
       item.tabIndex = 0;
       item.setAttribute("role", "listitem");
-      item.innerHTML = `<h4>${pub.title}</h4><p>${pub.authors}</p>`;
+
+      item.innerHTML = `
+      <div class="pub-image-container">
+        <img src="${pub.image || "default-thumbnail.jpg"}" alt="${pub.title}">
+        <div class="pub-overlay">
+          <p class="pub-pitch">${pub.pitch}</p>
+          <a href="${pub.arxiv}" target="_blank" rel="noopener" class="pub-link">View on arXiv</a>
+        </div>
+
+      </div>
+      <h4 class="pub-title">${pub.title}</h4>
+    `;
+
       item.addEventListener("click", () => openModal(pub));
       item.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -128,16 +128,18 @@ document.addEventListener("DOMContentLoaded", () => {
           openModal(pub);
         }
       });
+
       pubList.appendChild(item);
     });
   }
 
   // Open modal with publication details
   function openModal(pub) {
-    modalTitle.textContent = pub.title;
-    modalAuthors.textContent = pub.authors;
-    modalAbstract.textContent = pub.abstract;
-    modalPdfLink.href = pub.pdf;
+    modalTitle.innerHTML = pub.title;
+    modalAuthors.innerHTML = pub.authors;
+    modalAbstract.innerHTML = `<strong>Abstract</strong><br>${pub.abstract}`;
+    modalPdfLink.href = pub.arxiv;
+    modalPdfLink.textContent = "View on arXiv";
     pubModal.setAttribute("aria-hidden", "false");
     modalCloseBtn.focus();
   }
@@ -145,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close modal
   function closeModal() {
     pubModal.setAttribute("aria-hidden", "true");
-    pubSearchInput.focus();
   }
 
   modalCloseBtn.addEventListener("click", closeModal);
@@ -159,13 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-
-  // Search input listener
-  if (pubSearchInput) {
-    pubSearchInput.addEventListener("input", (e) => {
-      renderPublications(e.target.value);
-    });
-  }
 
   // Initialize publications list & theme on load
   initTheme();

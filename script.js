@@ -25,26 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "A fundamental challenge in developing general learning algorithms is their tendency to forget past knowledge when adapting to new data. Addressing this problem requires a principled understanding of forgetting; yet, despite decades of study, no unified definition has emerged that provides insights into the underlying dynamics of learning. We propose an algorithm- and task-agnostic theory that characterises forgetting as a lack of self-consistency in a learner's predictive distribution over future experiences, manifesting as a loss of predictive information. Our theory naturally yields a general measure of an algorithm's propensity to forget. To validate the theory, we design a comprehensive set of experiments that span classification, regression, generative modelling, and reinforcement learning.We empirically demonstrate how forgetting is present across all learning settings and plays a significant role in determining learning efficiency. Together, these results establish a principled understanding of forgetting and lay the foundation for analysing and improving the information retention capabilities of general learning algorithms.",
       pitch: "Forgetting is a fundamental challenge in machine learning, yet it is poorly understood. In this paper, we propose a principled theory of forgetting and ask: What is forgetting, why does it occur, and how does it impact learning?",
       arxiv: "https://arxiv.org/abs/1234.5678",
-      image: "assets/pub_imgs/absorption_loss_dark.png",
+      project: "https://ben-sanati.github.io/forgetting-is-everywhere-project/",
+      imageLight: "assets/pub_imgs/absorption_loss.png",
+      imageDark: "assets/pub_imgs/absorption_loss_dark.png",
     },
-    // {
-    //   title: "Forgetting is Everywhere",
-    //   authors: "<strong>Ben Sanati</strong>, Thomas L. Lee, Trevor McInroe, Aidan Scannell,<br>Nikolay Malkin, David Abel, Amos Storkey",
-    //   abstract:
-    //     "A fundamental challenge in developing general learning algorithms is their tendency to forget past knowledge when adapting to new data. Addressing this problem requires a principled understanding of forgetting; yet, despite decades of study, no unified definition has emerged that provides insights into the underlying dynamics of learning. We propose an algorithm- and task-agnostic theory that characterises forgetting as a lack of self-consistency in a learner's predictive distribution over future experiences, manifesting as a loss of predictive information. Our theory naturally yields a general measure of an algorithm's propensity to forget. To validate the theory, we design a comprehensive set of experiments that span classification, regression, generative modelling, and reinforcement learning.We empirically demonstrate how forgetting is present across all learning settings and plays a significant role in determining learning efficiency. Together, these results establish a principled understanding of forgetting and lay the foundation for analysing and improving the information retention capabilities of general learning algorithms.",
-    //   pitch: "Forgetting is a fundamental challenge in machine learning, yet it is poorly understood. In this paper, we propose a principled theory of forgetting and ask: What is forgetting, why does it occur, and how does it impact learning?",
-    //   arxiv: "https://arxiv.org/abs/1234.5678",
-    //   image: "assets/pub_imgs/absorption_loss_dark.png",
-    // },
-    // {
-    //   title: "Forgetting is Everywhere",
-    //   authors: "<strong>Ben Sanati</strong>, Thomas L. Lee, Trevor McInroe, Aidan Scannell,<br>Nikolay Malkin, David Abel, Amos Storkey",
-    //   abstract:
-    //     "A fundamental challenge in developing general learning algorithms is their tendency to forget past knowledge when adapting to new data. Addressing this problem requires a principled understanding of forgetting; yet, despite decades of study, no unified definition has emerged that provides insights into the underlying dynamics of learning. We propose an algorithm- and task-agnostic theory that characterises forgetting as a lack of self-consistency in a learner's predictive distribution over future experiences, manifesting as a loss of predictive information. Our theory naturally yields a general measure of an algorithm's propensity to forget. To validate the theory, we design a comprehensive set of experiments that span classification, regression, generative modelling, and reinforcement learning.We empirically demonstrate how forgetting is present across all learning settings and plays a significant role in determining learning efficiency. Together, these results establish a principled understanding of forgetting and lay the foundation for analysing and improving the information retention capabilities of general learning algorithms.",
-    //   pitch: "Forgetting is a fundamental challenge in machine learning, yet it is poorly understood. In this paper, we propose a principled theory of forgetting and ask: What is forgetting, why does it occur, and how does it impact learning?",
-    //   arxiv: "https://arxiv.org/abs/1234.5678",
-    //   image: "assets/pub_imgs/absorption_loss_dark.png",
-    // },
   ];
 
   // Initialize theme from localStorage or system preference
@@ -73,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   themeToggleBtn.addEventListener("click", () => {
     body.classList.toggle("light");
     updateThemeIcons();
+    updateCardImages(); // <-- switch images when theme changes
     localStorage.setItem(
       "theme",
       body.classList.contains("light") ? "light" : "dark"
@@ -129,10 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       item.innerHTML = `
       <div class="pub-image-container">
-        <img src="${pub.image || "default-thumbnail.jpg"}" alt="${pub.title}">
+        <img src="${pub.imageLight}" alt="${pub.title}" class="pub-image-light">
+        <img src="${pub.imageDark}" alt="${pub.title}" class="pub-image-dark">
         <div class="pub-overlay">
           <p class="pub-pitch">${pub.pitch}</p>
-          <a href="${pub.arxiv}" target="_blank" rel="noopener" class="pub-link">View on arXiv</a>
         </div>
 
       </div>
@@ -151,13 +136,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function updateCardImages() {
+    const isLight = body.classList.contains("light");
+    document.querySelectorAll(".pub-card").forEach((card) => {
+      const imgLight = card.querySelector(".pub-image-light");
+      const imgDark = card.querySelector(".pub-image-dark");
+      if (imgLight && imgDark) {
+        imgLight.style.display = isLight ? "block" : "none";
+        imgDark.style.display = isLight ? "none" : "block";
+      }
+    });
+  }
+
   // Open modal with publication details
   function openModal(pub) {
     modalTitle.innerHTML = pub.title;
     modalAuthors.innerHTML = pub.authors;
     modalAbstract.innerHTML = `<strong>Abstract</strong><br>${pub.abstract}`;
+
     modalPdfLink.href = pub.arxiv;
-    modalPdfLink.textContent = "View on arXiv";
+    modalPdfLink.textContent = "ArXiv";
+
+    const existingProjectBtn = document.getElementById("modal-project-btn");
+    if (existingProjectBtn) existingProjectBtn.remove();
+
+    if (pub.project) {
+      const projectBtn = document.createElement("a");
+      projectBtn.href = pub.project;
+      projectBtn.target = "_blank";
+      projectBtn.className = modalPdfLink.className;
+      projectBtn.id = "modal-project-btn";
+      projectBtn.textContent = "Project Page";
+
+      projectBtn.style.marginLeft = "1rem";
+      modalPdfLink.insertAdjacentElement("afterend", projectBtn);
+    }
+
     pubModal.setAttribute("aria-hidden", "false");
     modalCloseBtn.focus();
   }
@@ -182,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize publications list & theme on load
   initTheme();
   renderPublications();
+  updateCardImages();
 
   // Background canvas animation example
   const canvas = document.getElementById("background-canvas");

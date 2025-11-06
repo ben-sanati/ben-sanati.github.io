@@ -327,6 +327,10 @@ body:not(.light) .logo-dark {
 }
 
 /* === Publications === */
+:root {
+  --pub-card-width: 468px;
+}
+
 #publications {
   max-width: 1500px;
   margin: 0rem auto 5rem auto;
@@ -341,14 +345,18 @@ body:not(.light) .logo-dark {
 
 .pub-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(var(--pub-card-width), 1fr));
   gap: 1.5rem;
+  justify-content: center;
+  justify-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
   padding: 0 1rem;
-  align-items: stretch;
 }
 
-/* card */
 .pub-card {
+  width: var(--pub-card-width);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

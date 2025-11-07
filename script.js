@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       abstract:
         "A fundamental challenge in developing general learning algorithms is their tendency to forget past knowledge when adapting to new data. Addressing this problem requires a principled understanding of forgetting; yet, despite decades of study, no unified definition has emerged that provides insights into the underlying dynamics of learning. We propose an algorithm- and task-agnostic theory that characterises forgetting as a lack of self-consistency in a learner's predictive distribution over future experiences, manifesting as a loss of predictive information. Our theory naturally yields a general measure of an algorithm's propensity to forget. To validate the theory, we design a comprehensive set of experiments that span classification, regression, generative modelling, and reinforcement learning.We empirically demonstrate how forgetting is present across all learning settings and plays a significant role in determining learning efficiency. Together, these results establish a principled understanding of forgetting and lay the foundation for analysing and improving the information retention capabilities of general learning algorithms.",
       pitch: "Forgetting is a fundamental challenge in machine learning, yet it is poorly understood. In this paper, we propose a principled theory of forgetting and ask: What is forgetting, why does it occur, and how does it impact learning?",
-      arxiv: "https://arxiv.org/abs/1234.5678",
+      arxiv: "https://arxiv.org/abs/2511.04666",
       project: "https://ben-sanati.github.io/forgetting-is-everywhere-project/",
       imageLight: "assets/pub_imgs/absorption_loss.png",
       imageDark: "assets/pub_imgs/absorption_loss_dark.png",

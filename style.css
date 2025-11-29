@@ -310,13 +310,6 @@ body:not(.light) .logo-dark {
   cursor: default;
 }
 
-.card:hover,
-.card:focus-visible {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px var(--shadow-primary);
-  outline-offset: 3px;
-}
-
 .card h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;

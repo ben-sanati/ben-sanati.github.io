@@ -55,13 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle light/dark theme and save preference
   themeToggleBtn.addEventListener("click", () => {
-    body.classList.toggle("light");
-    updateThemeIcons();
-    updateCardImages(); // <-- switch images when theme changes
-    localStorage.setItem(
-      "theme",
-      body.classList.contains("light") ? "light" : "dark"
-    );
+    document.body.classList.add("theme-switch");
+  
+    requestAnimationFrame(() => {
+      document.body.classList.toggle("light");
+      updateThemeIcons();
+  
+      requestAnimationFrame(() => {
+        document.body.classList.remove("theme-switch");
+      });
+    });
   });
 
   // Smooth scroll helper (used in hero button)

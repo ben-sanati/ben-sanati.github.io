@@ -53,6 +53,14 @@ body.light {
   --shadow-primary: rgba(91, 33, 182, 0.7);
 }
 
+body.theme-switch * {
+  transition: none !important;
+}
+
+body.theme-switch .card {
+  background-color: currentColor; /* temporary solid background */
+}
+
 /* Background Canvas fills viewport */
 #background-canvas {
   position: fixed;
@@ -295,33 +303,66 @@ body:not(.light) .logo-dark {
 }
 
 /* Research Cards Grid */
-.cards-grid {
+.rf-wrap {
+  max-width: 1080px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+
+  position: relative;
+  isolation: isolate; /* keep stacking isolation */
+}
+
+.rf-title {
+  font-weight: 900;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center; /* FIX 1: centered title */
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rf-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-.card {
-  background: var(--card-bg);
+.rf-card {
+  background-color: var(--card-bg);
   border-radius: 20px;
   padding: 1.75rem 1.5rem;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  overflow: visible; /* FIX 2: guarantees no clipping */
 }
 
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: var(--accent-primary);
+.rf-card h3 {
+  margin: 0 0 0.75rem;
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--accent-primary);
 }
 
-.card p {
+.rf-card p {
+  margin: 0;
   font-size: 1rem;
   line-height: 1.5;
   color: var(--text-color);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .rf-wrap {
+    margin: 3rem auto;
+  }
 }
 
 /* === Publications === */
@@ -786,12 +827,6 @@ input:focus-visible,
 
   .nav-links button#theme-toggle {
     font-size: 1.6rem;
-  }
-
-  /* Cards become single column */
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 
   /* Experience container shrinks padding, entries font smaller */

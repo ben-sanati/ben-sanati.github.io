@@ -34,28 +34,27 @@ a:active {
   --text-color: #e0e7ff;
   --accent-primary: #7c5cff;
   --accent-secondary: #00d4ff;
-  --card-bg: rgba(15, 23, 36, 0.75);
+  --card-bg: rgba(15, 23, 36, 1.0);
   --btn-bg: #7c5cff;
   --btn-color: #fff;
   --btn-outline-border: #00d4ff;
-  --shadow-primary: rgba(124, 92, 255, 0.7);
+  --shadow-primary: rgba(57, 21, 208, 0.1);
+  --box-shadow: 0 0 15px;
 }
 
 body.light {
-  --bg-color: #f0f4ff;
+  --bg-color: #ffffff;
   --text-color: #1e293b;
   --accent-primary: #5b21b6;
   --accent-secondary: #0284c7;
-  --card-bg: rgba(240, 244, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 1.0);
   --btn-bg: #5b21b6;
   --btn-color: #fff;
   --btn-outline-border: #0284c7;
-  --shadow-primary: rgba(91, 33, 182, 0.28);
+  --shadow-primary: rgba(124, 92, 255, 0.7);
+  --box-shadow: 0 0 15px;
 }
 
-body.theme-switch * {
-  transition: none !important;
-}
 
 /* Background Canvas fills viewport */
 #background-canvas {
@@ -238,7 +237,15 @@ header {
 .hero-photo img {
   max-width: 650px;
   border-radius: 20px;
-  box-shadow: 0 0 6px var(--shadow-primary);
+}
+
+body.light .hero-photo img {
+  box-shadow: 15px 15px 15px var(--shadow-primary);
+}
+
+body:not(.light) .hero-photo img {
+  box-shadow: 10px 10px 10px var(--shadow-primary);
+  transition: transform 2s ease;
 }
 
 /* Logos container */
@@ -334,14 +341,18 @@ body:not(.light) .logo-dark {
   border-radius: 20px;
   padding: 1.75rem 1.5rem;
 
-  box-shadow:
-    0 3px 8px rgba(0, 0, 0, 0.16),
-    0 0 3px var(--shadow-primary);
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 
   position: relative;
   overflow: visible;
+}
+
+body.light .rf-card {
+  box-shadow: 0 0 20px var(--shadow-primary);
+}
+
+body:not(.light) .rf-card {
+  box-shadow: 0 0 12px var(--shadow-primary);
 }
 
 .rf-card h3 {
@@ -402,15 +413,29 @@ body:not(.light) .logo-dark {
   background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 0 6px var(--shadow-primary);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.3s ease;
   height: 100%;
 }
 
+body.light .pub-card {
+  box-shadow: 0 0 20px var(--shadow-primary);
+}
+
+body:not(.light) .pub-card {
+  box-shadow: 0 0 12px var(--shadow-primary);
+}
+
 .pub-card:hover {
   transform: translateY(-4px);
-  box-shadow: 5px 5px 5px var(--shadow-primary);
+}
+
+body.light .pub-card:hover {
+  box-shadow: 20px 20px 20px var(--shadow-primary);
+}
+
+body:not(.light) .pub-card:hover {
+  box-shadow: 12px 12px 12px var(--shadow-primary);
 }
 
 /* image and hover */
@@ -497,21 +522,12 @@ body.light .pub-overlay .pub-link:hover {
   color: #36bcff;
 }
 
-/* Prevent grainy glow rendering */
-.rf-card,
-.pub-card,
-.experience,
-.modal-content {
-  will-change: box-shadow;
-  transform: translateZ(0);
-}
-
 
 /* Modal */
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(3px);
   display: none;
   align-items: center;
@@ -530,7 +546,7 @@ body.light .pub-overlay .pub-link:hover {
   padding: 2rem;
   max-width: 600px;
   border-radius: 20px;
-  box-shadow: 0 8px 25px var(--shadow-primary);
+  box-shadow: 0 0px 25px var(--shadow-primary);
   position: relative;
 }
 
@@ -622,8 +638,16 @@ body.light .pub-overlay .pub-link:hover {
   padding: 0 1.5rem;
   background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 0 0 5px var(--shadow-primary);
   padding: 2rem 3rem;
+}
+
+body.light .experience {
+  box-shadow: 0 0 25px var(--shadow-primary);
+}
+
+body:not(.light) .experience {
+  box-shadow: 0 0 25px var(--shadow-primary);
+  transition: transform 2s ease;
 }
 
 .entry {
@@ -655,6 +679,15 @@ body.light .pub-overlay .pub-link:hover {
   line-height: 1.5;
   color: var(--text-color);
 }
+
+.rf-card,
+.pub-card,
+.experience,
+.modal-content {
+  will-change: box-shadow;
+  transform: translateZ(0);
+}
+
 
 /* Responsive */
 @media (max-width: 720px) {

@@ -50,15 +50,11 @@ body.light {
   --btn-bg: #5b21b6;
   --btn-color: #fff;
   --btn-outline-border: #0284c7;
-  --shadow-primary: rgba(91, 33, 182, 0.7);
+  --shadow-primary: rgba(91, 33, 182, 0.28);
 }
 
 body.theme-switch * {
   transition: none !important;
-}
-
-body.theme-switch .card {
-  background-color: currentColor; /* temporary solid background */
 }
 
 /* Background Canvas fills viewport */
@@ -242,7 +238,7 @@ header {
 .hero-photo img {
   max-width: 650px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px var(--shadow-primary);
+  box-shadow: 0 0 6px var(--shadow-primary);
 }
 
 /* Logos container */
@@ -338,10 +334,14 @@ body:not(.light) .logo-dark {
   border-radius: 20px;
   padding: 1.75rem 1.5rem;
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.16),
+    0 0 3px var(--shadow-primary);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   position: relative;
-  overflow: visible; /* FIX 2: guarantees no clipping */
+  overflow: visible;
 }
 
 .rf-card h3 {
@@ -402,7 +402,7 @@ body:not(.light) .logo-dark {
   background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 10px var(--shadow-primary);
+  box-shadow: 0 0 6px var(--shadow-primary);
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.3s ease;
   height: 100%;
@@ -410,7 +410,7 @@ body:not(.light) .logo-dark {
 
 .pub-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px var(--shadow-primary);
+  box-shadow: 5px 5px 5px var(--shadow-primary);
 }
 
 /* image and hover */
@@ -495,6 +495,15 @@ body.light .pub-overlay .pub-link {
 
 body.light .pub-overlay .pub-link:hover {
   color: #36bcff;
+}
+
+/* Prevent grainy glow rendering */
+.rf-card,
+.pub-card,
+.experience,
+.modal-content {
+  will-change: box-shadow;
+  transform: translateZ(0);
 }
 
 
@@ -613,7 +622,7 @@ body.light .pub-overlay .pub-link:hover {
   padding: 0 1.5rem;
   background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 0 8px 25px var(--shadow-primary);
+  box-shadow: 0 0 5px var(--shadow-primary);
   padding: 2rem 3rem;
 }
 

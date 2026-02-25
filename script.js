@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
       document.body.classList.toggle("light");
       updateThemeIcons();
+      updateCardImages();
   
       requestAnimationFrame(() => {
         document.body.classList.remove("theme-switch");

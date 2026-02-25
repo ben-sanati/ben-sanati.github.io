@@ -16,7 +16,7 @@ body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
-  min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -680,13 +680,13 @@ body:not(.light) .experience {
   color: var(--text-color);
 }
 
-.rf-card,
+/* .rf-card,
 .pub-card,
 .experience,
 .modal-content {
   will-change: box-shadow;
   transform: translateZ(0);
-}
+} */
 
 
 /* Responsive */
@@ -729,7 +729,7 @@ body:not(.light) .experience {
   .modal-content {
     width: 100%;       /* full screen width */
     max-width: 100%;   /* override desktop max-width */
-    max-height: 90vh;  /* occupy most of the screen height */
+    max-height: 90dvh;  /* occupy most of the screen height */
     padding: 1.5rem;   /* smaller padding */
     border-radius: 12px; /* slightly rounded corners */
     overflow-y: auto;   /* allow scrolling if content is tall */
@@ -831,7 +831,7 @@ input:focus-visible,
   .modal-content {
     width: 100%;       /* full screen width */
     max-width: 100%;   /* override desktop max-width */
-    max-height: 90vh;  /* occupy most of the screen height */
+    max-height: 90dvh;  /* occupy most of the screen height */
     padding: 1.5rem;   /* smaller padding */
     border-radius: 12px; /* slightly rounded corners */
     overflow-y: auto;   /* allow scrolling if content is tall */
@@ -911,7 +911,7 @@ input:focus-visible,
   .modal-content {
     width: 100%;       /* full screen width */
     max-width: 100%;   /* override desktop max-width */
-    max-height: 90vh;  /* occupy most of the screen height */
+    max-height: 90dvh;  /* occupy most of the screen height */
     padding: 1.5rem;   /* smaller padding */
     border-radius: 12px; /* slightly rounded corners */
     overflow-y: auto;   /* allow scrolling if content is tall */

@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       project: "https://ben-sanati.github.io/forgetting-is-everywhere-project/",
       imageLight: "assets/pub_imgs/absorption_loss.png",
       imageDark: "assets/pub_imgs/absorption_loss_dark.png",
+      showProject: false
     },
   ];
 
@@ -160,21 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modalPdfLink.href = pub.arxiv;
     modalPdfLink.textContent = "ArXiv";
-
-    const existingProjectBtn = document.getElementById("modal-project-btn");
-    if (existingProjectBtn) existingProjectBtn.remove();
-
-    if (pub.project) {
-      const projectBtn = document.createElement("a");
-      projectBtn.href = pub.project;
-      projectBtn.target = "_blank";
-      projectBtn.className = modalPdfLink.className;
-      projectBtn.id = "modal-project-btn";
-      projectBtn.textContent = "Project Page";
-
-      projectBtn.style.marginLeft = "1rem";
-      modalPdfLink.insertAdjacentElement("afterend", projectBtn);
-    }
 
     pubModal.setAttribute("aria-hidden", "false");
     modalCloseBtn.focus();

@@ -28,7 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       project: "https://ben-sanati.github.io/forgetting-is-everywhere-project/",
       imageLight: "assets/pub_imgs/absorption_loss.png",
       imageDark: "assets/pub_imgs/absorption_loss_dark.png",
-      showProject: false
+      showProject: false,
+      badges: [
+        /*{ text: "CoLLAs 2026", type: "conference" },*/
+        { text: "<strong>[Oral]</strong>: CRL Workshop @ RLC 2026", type: "workshop" },
+      ]
     },
   ];
 
@@ -117,17 +121,31 @@ document.addEventListener("DOMContentLoaded", () => {
       item.tabIndex = 0;
       item.setAttribute("role", "listitem");
 
-      item.innerHTML = `
-      <div class="pub-image-container">
-        <img src="${pub.imageLight}" alt="${pub.title}" class="pub-image-light">
-        <img src="${pub.imageDark}" alt="${pub.title}" class="pub-image-dark">
-        <div class="pub-overlay">
-          <p class="pub-pitch">${pub.pitch}</p>
+      const badgeHTML = (pub.badges || [])
+        .map(
+          badge => `
+            <span class="pub-badge pub-badge-${badge.type}">
+              ${badge.text}
+            </span>
+          `
+        )
+        .join("");
+
+        item.innerHTML = `
+        <div class="pub-image-container">
+          <img src="${pub.imageLight}" alt="${pub.title}" class="pub-image-light">
+          <img src="${pub.imageDark}" alt="${pub.title}" class="pub-image-dark">
+          <div class="pub-overlay">
+            <p class="pub-pitch">${pub.pitch}</p>
+          </div>
         </div>
 
-      </div>
-      <h4 class="pub-title">${pub.title}</h4>
-    `;
+        <div class="pub-badges">
+          ${badgeHTML}
+        </div>
+        
+        <h4 class="pub-title">${pub.title}</h4>
+        `;
 
       item.addEventListener("click", () => openModal(pub));
       item.addEventListener("keydown", (e) => {

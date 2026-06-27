@@ -1,10 +1,10 @@
 // script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   // Elements
   const themeToggleBtn = document.getElementById("theme-toggle");
   const iconSun = themeToggleBtn.querySelector(".icon-sun");
   const iconMoon = themeToggleBtn.querySelector(".icon-moon");
+  const rootElement = document.documentElement;
   const body = document.body;
 
   const pubList = document.getElementById("pub-list");
@@ -36,39 +36,74 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
+  // Apple Fix: Dynamic meta tracker injected if missing
+  let colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+  if (!colorSchemeMeta) {
+    colorSchemeMeta = document.createElement('meta');
+    colorSchemeMeta.name = 'color-scheme';
+    document.head.appendChild(colorSchemeMeta);
+  }
+
   // Initialize theme from localStorage or system preference
   function initTheme() {
     const savedTheme = localStorage.getItem("theme");
+    let isLight = true;
+
     if (savedTheme) {
-      body.classList.toggle("light", savedTheme === "light");
+      isLight = (savedTheme === "light");
     } else {
-      // Detect prefers-color-scheme
-      const prefersLight = window.matchMedia(
-        "(prefers-color-scheme: light)"
-      ).matches;
-      body.classList.toggle("light", prefersLight);
+      isLight = window.matchMedia("(prefers-color-scheme: light)").matches;
     }
+    
+    // Sync both tags to protect layout variables across older/newer iOS targets
+    rootElement.classList.toggle("light", isLight);
+    body.classList.toggle("light", isLight);
+    
+    syncMetaTag(isLight);
     updateThemeIcons();
+  }
+
+  // Apple Fix: Changes browser engine canvas rendering behavior instantly
+  function syncMetaTag(isLight) {
+    const themeMode = isLight ? "light" : "dark";
+    colorSchemeMeta.setAttribute("content", themeMode);
+    localStorage.setItem("theme", themeMode);
   }
 
   // Update theme icons visibility
   function updateThemeIcons() {
-    const isLight = body.classList.contains("light");
+    const isLight = rootElement.classList.contains("light");
     iconSun.hidden = isLight;
     iconMoon.hidden = !isLight;
   }
 
+  // Apple Fix: Force layout engines to discard cached style matrices
+  function forceSafariRepaint() {
+    rootElement.style.display = 'none';
+    rootElement.offsetHeight; // Forces absolute browser layout recalculation
+    rootElement.style.display = '';
+  }
+
   // Toggle light/dark theme and save preference
   themeToggleBtn.addEventListener("click", () => {
-    document.body.classList.add("theme-switch");
+    // Keep transition wrapper logic intact
+    body.classList.add("theme-switch");
   
     requestAnimationFrame(() => {
-      document.body.classList.toggle("light");
+      const targetState = !rootElement.classList.contains("light");
+      
+      rootElement.classList.toggle("light", targetState);
+      body.classList.toggle("light", targetState);
+      
+      syncMetaTag(targetState);
       updateThemeIcons();
       updateCardImages();
+      
+      // Fix WebKit hardware layers sticking in old theme mode
+      forceSafariRepaint();
   
       requestAnimationFrame(() => {
-        document.body.classList.remove("theme-switch");
+        body.classList.remove("theme-switch");
       });
     });
   });
@@ -85,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleFadeIn() {
     const aboutContact = document.getElementById("about");
     if (!aboutContact) {
-      // If the #about section is removed, just remove the event listener and return
       window.removeEventListener("scroll", handleFadeIn);
       return;
     }
@@ -160,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateCardImages() {
-    const isLight = body.classList.contains("light");
+    const isLight = rootElement.classList.contains("light");
     document.querySelectorAll(".pub-card").forEach((card) => {
       const imgLight = card.querySelector(".pub-image-light");
       const imgDark = card.querySelector(".pub-image-dark");
@@ -208,15 +242,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Background canvas animation example
   const canvas = document.getElementById("background-canvas");
-  const ctx = canvas.getContext("2d");
-  let width, height;
-  let particles = [];
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particles = [];
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
   }
-
-  window.addEventListener("resize", resize);
-  resize();
 });

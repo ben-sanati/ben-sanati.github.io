@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imageDark: "assets/pub_imgs/absorption_loss_dark.png",
       showProject: false,
       badges: [
-        /*{ text: "CoLLAs 2026", type: "conference" },*/
+        { text: "CoLLAs 2026", type: "conference" },
         { text: "<strong>[Oral]</strong>: CRL Workshop @ RLC 2026", type: "workshop" },
       ]
     },
